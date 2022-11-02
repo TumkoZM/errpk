@@ -45,23 +45,23 @@ local libs = {
         path = "/lib/casino.lua"
     },
     {
-        url = REPOSITORY .. "/external/IgorTimofeev/AdvancedLua.lua",
+        url = REPOSITORY .. "/external/AdvancedLua.lua",
         path = "/lib/advancedLua.lua"
     },
     {
-        url = REPOSITORY .. "/external/IgorTimofeev/Color.lua",
+        url = REPOSITORY .. "/external/Color.lua",
         path = "/lib/color.lua"
     },
     {
-        url = REPOSITORY .. "/external/IgorTimofeev/OCIF.lua",
+        url = REPOSITORY .. "/external/OCIF.lua",
         path = "/lib/FormatModules/OCIF.lua"
     },
     {
-        url = REPOSITORY .. "/external/IgorTimofeev/Image.lua",
+        url = REPOSITORY .. "/external/Image.lua",
         path = "/lib/image.lua"
     },
     {
-        url = REPOSITORY .. "/external/IgorTimofeev/DoubleBuffering.lua",
+        url = REPOSITORY .. "/external/DoubleBuffering.lua",
         path = "/lib/doubleBuffering.lua"
     },
     {
