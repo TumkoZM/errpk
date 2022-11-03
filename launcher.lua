@@ -139,7 +139,7 @@ end
 
 local function drawStatic()
     buffer.setResolution(76,24)
-    drawRectangleWithCenterText(1, 1, 76, 24, settings.TITLE, 0x000000, 0x000000)
+    drawRectangleWithCenterText(1, 1, 76, 24, settings.TITLE, 0x303030, 0x303030)
     buffer.drawText(4, 1, 0x43ba0d, 'Авторизован:')
     computer.addUser(casino.container.getInventoryName())
     buffer.drawText(17, 1, 0xf2b233, casino.container.getInventoryName())
@@ -229,10 +229,10 @@ local function handlePim()
             if frame < 25 then
                 for i = 1, 5 do
                     frame = frame + 1
-                    buffer.drawRectangle(1, 1, 60, 19, 0x000000, 0x0, ' ')
+                    buffer.drawRectangle(1, 1, 60, 19, 0x303030, 0x0, ' ')
                     buffer.drawText(26, 3, 0x4cb01e, 'OC Магазин')
                     buffer.drawText(18, 6, 0xf2b233, 'Встаньте на PIM чтобы войти')
-                    buffer.drawRectangle(25, 9, 12, 6, 0x303030, 0x0, ' ')
+                    buffer.drawRectangle(25, 9, 12, 6, 0x101010, 0x0, ' ')
                     buffer.drawText(23, 8, 0x46c8e3, '⡏⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⢹')
                     buffer.drawText(23, 9, 0x46c8e3, '⡇ ⡏⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⢹ ⢸')
                     buffer.drawText(23, 10, 0x46c8e3, '⡇ ⡇          ⢸ ⢸')
@@ -242,7 +242,7 @@ local function handlePim()
                     buffer.drawText(23, 14, 0x46c8e3, '⡇ ⣇⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣸ ⢸')
                     buffer.drawText(23, 15, 0x46c8e3, '⣇⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣸')
                     buffer.drawText(20, 17, 0x999999, 'Валюта: Железные блоки')
-                    buffer.drawText(26, 19, 0x303030, 'By Tumko')
+                    buffer.drawText(26, 19, 0x000000, 'By Tumko')
                     buffer.drawChanges()
                     os.sleep(0.01)
                 end
