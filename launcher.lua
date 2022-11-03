@@ -218,20 +218,42 @@ local function onPimPlayerOff(_, name)
     SHOULD_INTERRUPT = true
 end
 
+local pimGeometry = {
+    x = 23,
+    y = 7,
+
+    "⡏⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⢹",
+    "⡇ ⡏⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⢹ ⢸",
+    "⡇ ⡇          ⢸ ⢸",
+    "⡇ ⡇          ⢸ ⢸ ",
+    "⡇ ⡇          ⢸ ⢸",
+    "⡇ ⡇          ⢸ ⢸",
+    "⡇ ⣇⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣸ ⢸",
+    "⣇⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣸"
+
+}
+
+local function drawPim()
+    for str = 1, #pimGeometry do 
+        set(pimGeometry.x, pimGeometry.y + str, pimGeometry[str], color.background, color.pim)
+    end
+end
+
 local function handlePim()
     if casino.container.getInventoryName() == 'pim' then
         removeUsers()
         casino.setCurrency(currencies[1])
-        buffer.setResolution(60,20)
+        buffer.setResolution(60,19)
         buffer.drawChanges()
         local frame = 0
         while casino.container.getInventoryName() == 'pim' do
             if frame < 25 then
                 for i = 1, 5 do
                     frame = frame + 1
-                    buffer.drawRectangle(1, 1, 60, 20, 0x000000, 0x0, ' ')
+                    buffer.drawRectangle(1, 1, 60, 19, 0x000000, 0x0, ' ')
                     buffer.drawText(26, 3, 0x4cb01e, 'OC Магазин')
                     buffer.drawText(18, 6, 0xf2b233, 'Встаньте на PIM для входа')
+                    drawPim()
                     buffer.drawText(20, 17, 0x999999, 'Валюта: Железные блоки')
                     buffer.drawText(26, 19, 0x303030, 'By Tumko')
                     buffer.drawChanges()
