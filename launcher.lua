@@ -139,7 +139,7 @@ end
 
 local function drawStatic()
     buffer.setResolution(76,24)
-    drawRectangleWithCenterText(1, 1, 160, 5, settings.TITLE, 0x431148, 0xFFFFFF)
+    drawRectangleWithCenterText(1, 1, 76, 24, settings.TITLE, 0x431148, 0xFFFFFF)
 
     if (state.devMode) then
         writeCenter(158, 1, "{dev}", 0xE700FF)
@@ -153,7 +153,7 @@ local function drawStatic()
 end
 
 local function drawLibSettings()
-    buffer.drawRectangle(49, 6, 112, 45, 0xFFFFFF, 0, " ")
+
     for i = 1, #libs do
         buffer.drawText(51, 5 + i * 2, 0x0000AA, "Скачать  Правка");
         buffer.drawText(68, 5 + i * 2, 0, libs[i].path);
@@ -170,8 +170,6 @@ local function drawDynamic()
     end
     local selection = games[state.selection]
     local gameImgPath = "/home/images/games_logo/" .. selection.image
-    buffer.drawRectangle(49, 6, 112, 45, 0xFFFFFF, 0, " ")
-    buffer.drawRectangle(1, 6, 48, 45, 0xF2F2F2, 0, " ")
     casino.downloadFile(REPOSITORY .. "/resources/images/games_logo/" .. selection.image, gameImgPath)
     buffer.drawImage(51, 7, image.load(gameImgPath))  -- 50х32
     writeCenter(133, 7, selection.title, 0x000000)
