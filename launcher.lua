@@ -246,11 +246,11 @@ local function handlePim()
                     buffer.drawText(20, 17, 0xFFFFFF, 'Валюта: Железные блоки')
                     buffer.drawText(26, 19, 0x000000, 'By Tumko')
                     buffer.drawChanges()
-                    os.sleep(0.01)
+                    os.sleep(0.001)
                 end
             else
                 frame = frame + 5
-                os.sleep(0.01)
+                os.sleep(0.001)
             end
             if frame > 150 then
                 frame = 0
@@ -272,7 +272,7 @@ local function handlePim()
                     buffer.drawText(20, 17, 0xFFFFFF, 'Валюта: Железные блоки')
                     buffer.drawText(26, 19, 0x000000, 'By Tumko')
                     buffer.drawChanges()
-        os.sleep(0.01)
+        os.sleep(0.001)
         drawStatic()
         drawDynamic()
         buffer.drawChanges()
