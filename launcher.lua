@@ -175,7 +175,6 @@ local function drawDynamic()
 
     for i = 1, #games do
         local bgColor = selection == games[i] and 0xA890AA or 0xE3E3E3
-        drawRectangleWithCenterText(2, 3 + i * 4, 46, 3, games[i].title, bgColor, 0x000000)
     end
 
     local currentCurrency = casino.getCurrency()
