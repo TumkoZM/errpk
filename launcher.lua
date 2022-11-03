@@ -247,7 +247,7 @@ local function handlePim()
                 end
             else
                 frame = frame + 5
-                os.sleep(0.5)
+                os.sleep(0.1)
             end
             if frame > 150 then
                 frame = 0
