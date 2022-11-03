@@ -1,7 +1,7 @@
 local settings = {}
 
 settings.REPOSITORY = "https://raw.githubusercontent.com/Tumkov/bleb/main"
-settings.TITLE = "Приветствуем ваc"
+settings.TITLE = ""
 settings.ADMINS = { "Tumko" }
 
 -- CHEST - Взаимодействие сундука и МЕ сети
