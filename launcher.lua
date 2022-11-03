@@ -146,6 +146,8 @@ local function drawStatic()
     buffer.drawText(4, 3, 0x68f029, 'Имя предмета                            Доступно             Цена')
     buffer.drawText(1, 4, 0x68f029, '⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉')
     buffer.drawText(4, 24, 0x4cb01e, 'Баланс: = ')
+    computer.addUser(casino.container.component.diamond())
+    buffer.drawText(10, 24, 0x4cb01e, 'ЖБ')
     if (state.devMode) then
         writeCenter(158, 1, "{dev}", 0xE700FF)
         writeCenter(160, 2, "X", 0xFF0000)
