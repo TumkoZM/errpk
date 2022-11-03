@@ -263,7 +263,7 @@ local function handlePim()
         buffer.drawText(23, 11, 0x46c8e3, '⡇ ⡇          ⢸ ⢸')
         buffer.drawText(23, 12, 0x46c8e3, '⡇ ⡇          ⢸ ⢸')
         buffer.drawText(23, 13, 0x46c8e3, '⡇ ⡇          ⢸ ⢸')
-        buffer.drawText(23, 14, 0x46c8e3, '⡇ ⣇⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣸ ⢸
+        buffer.drawText(23, 14, 0x46c8e3, '⡇ ⣇⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣸ ⢸')
         buffer.drawText(23, 15, 0x46c8e3, '⣇⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣸')
         buffer.drawText(20, 17, 0x999999, 'Валюта: Железные блоки')
         buffer.drawText(26, 19, 0x303030, 'By Tumko')
