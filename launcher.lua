@@ -100,6 +100,33 @@ local function drawRectangleWithCenterText(x, y, width, height, text, bgColor, f
     writeCenter(width / 2 + x, height / 2 + y, text, fgColor)
 end
 
+local function drawCurrency(x, y, currency, current)
+    buffer.drawRectangle(x, y, 46, 3, --[[current and 0xA890AA or--]] 0xE3E3E3, 0, " ")
+    buffer.drawText(x + 8, y    , 0, currency.name)
+    buffer.drawText(x + 8, y + 1, 0, "Максимальная ставка: " .. (currency.max or "-"))
+    buffer.drawText(x + 8, y + 2, 0, "У казино: " .. casino.getCurrencyInStorage(currency) .. " шт.")
+
+    local color = currency.color or 0xE3E3E3
+    local darkColor = colorlib.transition(color, 0, 0.1)
+    if currency.model == 'INGOT' then
+        buffer.drawSemiPixelLine(x, y * 2 + 1, x + 2, y * 2 + 1, darkColor)
+        buffer.drawSemiPixelLine(x + 3, y * 2, x + 5, y * 2, darkColor)
+        buffer.drawSemiPixelLine(x, y * 2 + 2, x + 2, y * 2 + 2, color)
+        buffer.drawSemiPixelLine(x + 3, y * 2 + 1, x + 5, y * 2 + 1, color)
+        buffer.drawSemiPixelLine(x, y * 2 + 3, x + 2, y * 2 + 3, darkColor)
+        buffer.drawSemiPixelLine(x + 3, y * 2 + 2, x + 5, y * 2 + 2, darkColor)
+    elseif currency.model == 'DUST' then
+        buffer.drawSemiPixelRectangle(x + 2, y * 2 + 1, 3, 2, color)
+        buffer.drawSemiPixelRectangle(x + 1, y * 2 + 3, 5, 1, color)
+        buffer.drawSemiPixelLine(x, y * 2 + 3, x + 3, y * 2, darkColor)
+        buffer.drawSemiPixelLine(x + 3, y * 2, x + 6, y * 2 + 3, darkColor)
+        buffer.drawSemiPixelLine(x + 1, y * 2 + 4, x + 5, y * 2 + 4, darkColor)
+    elseif currency.model == 'BLOCK' then
+        buffer.drawSemiPixelRectangle(x, y * 2 - 1, 6, 6, darkColor)
+        buffer.drawSemiPixelRectangle(x + 1, y * 2, 4, 4, color)
+    end
+
+end
 local function drawBigText(x, y, text)
     if not text then
         return
@@ -111,7 +138,7 @@ local function drawBigText(x, y, text)
 end
 
 local function drawStatic()
-    buffer.setResolution(160, 50)
+    buffer.setResolution(76,24)
     drawRectangleWithCenterText(1, 1, 160, 5, settings.TITLE, 0x431148, 0xFFFFFF)
 
     if (state.devMode) then
@@ -195,7 +222,7 @@ local function handlePim()
     if casino.container.getInventoryName() == 'pim' then
         removeUsers()
         casino.setCurrency(currencies[1])
-        buffer.setResolution(32, 9)
+        buffer.setResolution(76,24)
         buffer.drawChanges()
         local frame = 0
         while casino.container.getInventoryName() == 'pim' do
