@@ -218,22 +218,6 @@ local function onPimPlayerOff(_, name)
     SHOULD_INTERRUPT = true
 end
 
-local pimGeometry = {
-    x = 23,
-    y = 7,
-
-    "⡏⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⢹",
-    "⡇ ⡏⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⢹ ⢸",
-    "⡇ ⡇          ⢸ ⢸",
-    "⡇ ⡇          ⢸ ⢸ ",
-    "⡇ ⡇          ⢸ ⢸",
-    "⡇ ⡇          ⢸ ⢸",
-    "⡇ ⣇⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣸ ⢸",
-    "⣇⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣸"
-
-}
-
-
 local function handlePim()
     if casino.container.getInventoryName() == 'pim' then
         removeUsers()
@@ -270,11 +254,22 @@ local function handlePim()
             end
         end
         computer.addUser(casino.container.getInventoryName())
-        buffer.drawRectangle(1, 1, 32, 9, 0xFFFFFF, 0x0, ' ')
+        buffer.drawRectangle(1, 1, 60, 19, 0x000000, 0x0, ' ')
+        buffer.drawText(26, 3, 0x4cb01e, 'OC Магазин')
+        buffer.drawText(18, 6, 0xf2b233, 'Встаньте на PIM для входа')
+        buffer.drawText(23, 8, 0x46c8e3, '⡏⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⢹')
+        buffer.drawText(23, 9, 0x46c8e3, '⡇ ⡏⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⢹ ⢸')
+        buffer.drawText(23, 10, 0x46c8e3, '⡇ ⡇          ⢸ ⢸')
+        buffer.drawText(23, 11, 0x46c8e3, '⡇ ⡇          ⢸ ⢸')
+        buffer.drawText(23, 12, 0x46c8e3, '⡇ ⡇          ⢸ ⢸')
+        buffer.drawText(23, 13, 0x46c8e3, '⡇ ⡇          ⢸ ⢸')
+        buffer.drawText(23, 14, 0x46c8e3, '⡇ ⣇⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣸ ⢸
+        buffer.drawText(23, 15, 0x46c8e3, '⣇⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣸')
+        buffer.drawText(20, 17, 0x999999, 'Валюта: Железные блоки')
+        buffer.drawText(26, 19, 0x303030, 'By Tumko')
         drawRectangleWithCenterText(1, 4, 32, 1, casino.container.getInventoryName(), 0xFFFFFF, 0x0)
-        buffer.drawText(2, 6, 0xFF0000, 'Не покидайте PIM до конца игры')
         buffer.drawChanges()
-        os.sleep(2)
+        os.sleep(0.1)
         drawStatic()
         drawDynamic()
         buffer.drawChanges()
