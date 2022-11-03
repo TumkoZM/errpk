@@ -1,8 +1,8 @@
 local settings = {}
 
-settings.REPOSITORY = "https://raw.githubusercontent.com/krovyaka/OpenComputers-Casino/master"
-settings.TITLE = "Приветствуем ваc у нас в казино"
-settings.ADMINS = { "krovyak", "Durex77" }
+settings.REPOSITORY = "https://raw.githubusercontent.com/Tumkov/bleb/main"
+settings.TITLE = "Приветствуем ваc"
+settings.ADMINS = { "Tumko" }
 
 -- CHEST - Взаимодействие сундука и МЕ сети
 -- PIM - Взаимодействие PIM и МЕ сети
