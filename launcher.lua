@@ -140,10 +140,10 @@ end
 local function drawStatic()
     buffer.setResolution(76,24)
     drawRectangleWithCenterText(1, 1, 76, 24, settings.TITLE, 0x000000, 0x000000)
-    buffer.drawText(4, 3, 0x43ba0d, 'Авторизован:')
+    buffer.drawText(4, 1, 0x43ba0d, 'Авторизован:')
     buffer.drawText(4, 3, 0xf43e3e, 'Имя предмета                            Доступно             Цена')
     buffer.drawText(1, 4, 0xf43e3e, '⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉')
-    buffer.drawText(4, 21, 0x4cb01e, 'Баланс :')
+    buffer.drawText(4, 27, 0x4cb01e, 'Баланс :')
     if (state.devMode) then
         writeCenter(158, 1, "{dev}", 0xE700FF)
         writeCenter(160, 2, "X", 0xFF0000)
