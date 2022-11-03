@@ -229,7 +229,7 @@ local function handlePim()
             if frame < 25 then
                 for i = 1, 5 do
                     frame = frame + 1
-                    buffer.drawRectangle(1, 1, 32, 9, 0x000000, 0x0, ' ')
+                    buffer.drawRectangle(1, 1, 76, 24, 0x000000, 0x0, ' ')
                     buffer.drawText(18, 6, 0x4cb01e, 'Встаньте на PIM для входа')
                     buffer.drawText(20, 17, 0xf2b233, 'Валюта: Железные блоки')
                     buffer.drawChanges()
