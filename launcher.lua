@@ -233,6 +233,22 @@ local pimGeometry = {
 
 }
 
+local color = {
+    pattern = "%[0x(%x%x%x%x%x%x)]",
+    background = 0x000000,
+    pim = 0x46c8e3,
+
+    gray = 0x303030,
+    lightGray = 0x999999,
+    blackGray = 0x1a1a1a,
+    lime = 0x68f029,
+    blackLime = 0x4cb01e,
+    orange = 0xf2b233,
+    blackOrange = 0xc49029,
+    blue = 0x4260f5,
+    blackBlue = 0x273ba1,
+    red = 0xff0000
+}
 local function drawPim()
     for str = 1, #pimGeometry do 
         set(pimGeometry.x, pimGeometry.y + str, pimGeometry[str], color.background, color.pim)
