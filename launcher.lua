@@ -222,7 +222,7 @@ local function handlePim()
     if casino.container.getInventoryName() == 'pim' then
         removeUsers()
         casino.setCurrency(currencies[1])
-        buffer.setResolution(32, 9)
+        buffer.setResolution(76,24)
         buffer.drawChanges()
         local frame = 0
         while casino.container.getInventoryName() == 'pim' do
@@ -230,14 +230,8 @@ local function handlePim()
                 for i = 1, 5 do
                     frame = frame + 1
                     buffer.drawRectangle(1, 1, 32, 9, 0x000000, 0x0, ' ')
-                    buffer.drawText(13, 1, 0x4cb01e, 'OC Магазин')
-                    buffer.drawText(13, 9, 0x303030, 'By Tumko')
-                  --  setColorText ( 18 , 6 , " [0xf2b233]Встаньте на [0x4260f5]PIM[0xf2b233] для входа " , color. background )
-                   -- setColorText ( 20 , 17 , " [0xf2b233]Валюта: [0x999999]Железные блоки " , color. background )
-                  --  buffer.drawText(15, 6, 0x00FFFF, ' ||')
-                   -- buffer.drawText(15, 7, 0x00FFFF, ' ||')
-                   -- buffer.drawText(15, 8, 0x00FFFF, '\\  /')
-                  --  buffer.drawText(15, 9, 0x00FFFF, ' \\/')
+                    buffer.drawText(18, 6, 0x4cb01e, 'Встаньте на PIM для входа')
+                    buffer.drawText(20, 17, 0xf2b233, 'Валюта: Железные блоки')
                     buffer.drawChanges()
                     os.sleep(0.1)
                 end
