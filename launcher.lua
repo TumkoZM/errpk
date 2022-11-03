@@ -140,7 +140,7 @@ end
 local function drawStatic()
     buffer.setResolution(76,24)
     drawRectangleWithCenterText(1, 1, 76, 24, settings.TITLE, 0x000000, 0x000000)
-    buffer.drawText(1, 5, 0xe94949, '⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉')
+    buffer.drawText(1, 4, 0xf43e3e, '⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉')
     if (state.devMode) then
         writeCenter(158, 1, "{dev}", 0xE700FF)
         writeCenter(160, 2, "X", 0xFF0000)
