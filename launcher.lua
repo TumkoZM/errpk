@@ -145,9 +145,7 @@ local function drawStatic()
     buffer.drawText(17, 1, 0xf2b233, casino.container.getInventoryName())
     buffer.drawText(4, 3, 0x68f029, 'Имя предмета                            Доступно             Цена')
     buffer.drawText(1, 4, 0x68f029, '⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉')
-    local count = casino.container.getStackInSlot(i).qty
-    buffer.drawText(4, 24, 0x4cb01e, casino.container.getStackInSlot(i).display_name..' - '..count..' шт.')
-    buffer.drawText(10, 24, 0x4cb01e, 'ЖБ')
+    buffer.drawText(4, 24, 0x4cb01e, 'Баланс: =')
     if (state.devMode) then
         writeCenter(158, 1, "{dev}", 0xE700FF)
         writeCenter(160, 2, "X", 0xFF0000)
@@ -157,7 +155,7 @@ local function drawStatic()
     end
     buffer.drawChanges()
 end
-ITEMS = {'Diamond'}
+
 local function drawLibSettings()
 
     for i = 1, #libs do
