@@ -230,7 +230,7 @@ local function handlePim()
                 for i = 1, 5 do
                     frame = frame + 1
                     buffer.drawRectangle(1, 1, 32, 9, 0x000000, 0x0, ' ')
-                    buffer.drawText(5, 3, 0x4cb01e, 'OC Магазин')
+                    buffer.drawText(2, 5, 0x4cb01e, 'OC Магазин')
                   --  setColorText ( 26 , 3 , " [0x4cb01e]OC Магазин " , цвет фона )
                   --  setColorText ( 18 , 6 , " [0xf2b233]Встаньте на [0x4260f5]PIM[0xf2b233] для входа " , color. background )
                    -- setColorText ( 20 , 17 , " [0xf2b233]Валюта: [0x999999]Железные блоки " , color. background )
