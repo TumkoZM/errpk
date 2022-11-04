@@ -9,7 +9,8 @@ local currencies
 local image
 local buffer
 local colorlib
-
+local pim=require("component").pim
+ 
 REPOSITORY = settings.REPOSITORY
 
 CURRENT_APP = nil
@@ -142,7 +143,7 @@ function getJBQty()
     local inventorySize = 36
     local slot = {}
     for i = 1, inventorySize do
-        slot[i] = casino.container.getStackInSlot(i)
+        slot[i] = pim.getStackInSlot(i)
         if slot[i] ~= nil then
             if slot[i].display_name == "Железный блок" or slot[i].display_name == "Block of Iron" then
                 JBqty = JBqty + slot[i].qty
