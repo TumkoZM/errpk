@@ -358,8 +358,7 @@ while true do
             if state.devMode then
                 drawRectangleWithCenterText(51, 40, 50, 5, "Обновить", 0x5B5B5B, 0xffffff)
                 buffer.drawChanges()
-                casino.downloadFile(REPOSITORY .. "/resources/images/games_logo/" .. selection.image, "/home/images/games_logo/" .. selection.image, true)
-                casino.downloadFile(REPOSITORY .. "/apps/" .. selection.file, "/home/apps/" .. selection.file, true)
+                
                 drawRectangleWithCenterText(51, 40, 50, 5, "Обновить", 0x431148, 0xffffff)
                 drawDynamic()
             else
