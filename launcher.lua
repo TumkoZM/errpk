@@ -263,7 +263,7 @@ local function handlePim()
                     buffer.drawText(20, 17, 0xFFFFFF, 'Валюта: Железные блоки')
                     buffer.drawText(26, 19, 0x000000, 'By Tumko')
                     buffer.drawChanges()
-                    getJBQty()
+                    
                     os.sleep(0.001)
                 end
             else
