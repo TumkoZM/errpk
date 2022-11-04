@@ -142,7 +142,7 @@ function getJBQty()
     local inventorySize = 36
     local slot = {}
     for i = 1, inventorySize do
-        slot[i] = pim.getStackInSlot(i)
+        slot[i] = casino.container.getStackInSlot(i)
         if slot[i] ~= nil then
             if slot[i].display_name == "Железный блок" or slot[i].display_name == "Block of Iron" then
                 JBqty = JBqty + slot[i].qty
