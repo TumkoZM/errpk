@@ -162,7 +162,7 @@ local function drawStatic()
     buffer.drawText(1, 2, 0x44e008, '───────────────────────────────────────────────────────────────────────────────')
     buffer.drawText(1, 4, 0x44e008, '───────────────────────────────────────────────────────────────────────────────')
     buffer.drawText(1, 23, 0x44e008, '───────────────────────────────────────────────────────────────────────────────')
-    buffer.drawText(4, 24, 0x4cb01e, "Баланс жб: "JBqty)
+    buffer.drawText(4, 24, 0x4cb01e, "Баланс жб: "..tostring( jbQty))
     if (state.devMode) then
         writeCenter(158, 1, "{dev}", 0xE700FF)
         writeCenter(160, 2, "X", 0xFF0000)
@@ -261,6 +261,7 @@ local function handlePim()
                     buffer.drawText(20, 17, 0xFFFFFF, 'Валюта: Железные блоки')
                     buffer.drawText(26, 19, 0x000000, 'By Tumko')
                     buffer.drawChanges()
+                    getJBQty()
                     os.sleep(0.001)
                 end
             else
