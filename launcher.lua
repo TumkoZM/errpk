@@ -137,6 +137,21 @@ local function drawBigText(x, y, text)
     end
 end
 
+function getJBQty()
+    local JBqty = 0
+    local inventorySize = 36
+    local slot = {}
+    for i = 1, inventorySize do
+        slot[i] = pim.getStackInSlot(i)
+        if slot[i] ~= nil then
+            if slot[i].display_name == "Железный блок" or slot[i].display_name == "Block of Iron" then
+                JBqty = JBqty + slot[i].qty
+            end
+        end
+    end
+    return JBqty
+end
+
 local function drawStatic()
     buffer.setResolution(76,24)
     drawRectangleWithCenterText(1, 1, 76, 24, settings.TITLE, 0x1a1a1a, 0x1a1a1a)
@@ -147,7 +162,7 @@ local function drawStatic()
     buffer.drawText(1, 2, 0x44e008, '───────────────────────────────────────────────────────────────────────────────')
     buffer.drawText(1, 4, 0x44e008, '───────────────────────────────────────────────────────────────────────────────')
     buffer.drawText(1, 23, 0x44e008, '───────────────────────────────────────────────────────────────────────────────')
-    buffer.drawText(4, 24, 0x4cb01e, 'Баланс: =')
+    buffer.drawText(4, 24, 0x4cb01e, "Баланс жб: "..tostring( jbQty))
     if (state.devMode) then
         writeCenter(158, 1, "{dev}", 0xE700FF)
         writeCenter(160, 2, "X", 0xFF0000)
