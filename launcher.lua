@@ -164,7 +164,7 @@ local function drawStatic()
     buffer.drawText(1, 4, 0x44e008, '───────────────────────────────────────────────────────────────────────────────')
     buffer.drawText(1, 23, 0x44e008, '───────────────────────────────────────────────────────────────────────────────')
     buffer.drawText(4, 24, 0x4cb01e, "Баланс жб: ")
-    buffer.drawText(15, 24, 0x4cb01e, getJBQty() "ЖБ")
+    buffer.drawText(15, 24, 0x4cb01e, getJBQty())
     
     if (state.devMode) then
         writeCenter(158, 1, "{dev}", 0xE700FF)
