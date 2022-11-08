@@ -164,7 +164,7 @@ local function drawStatic()
     buffer.drawText(1, 23, 0x44e008, '───────────────────────────────────────────────────────────────────────────────')
     buffer.drawText(4, 24, 0x4cb01e, "Баланс ЖБ: ")
     buffer.drawText(15, 24, 0xff903d, getJBQty())
-    fieldSymbolInput()
+    
     
     os.sleep(0.001)
     if (state.devMode) then
