@@ -33,7 +33,7 @@ local state = {
 }
 
 
-local requiredDirectories = { "/lib/FormatModules", "/home/images/", "/home/images/games_logo", "/home/images/currencies", "/home/apps" }
+local requiredDirectories = { " }
 
 local libs = {
     {
