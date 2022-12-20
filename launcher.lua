@@ -188,43 +188,7 @@ local function drawLibSettings()
     buffer.drawChanges()
 end
 
-local function drawDynamic()
-    if state.selection == 0 then
-        drawLibSettings()
-        return
-    end
-    local selection = games[state.selection]
-    local gameImgPath = "/home/images/games_logo/" .. selection.image
-    casino.downloadFile(REPOSITORY .. "/resources/images/games_logo/" .. selection.image, gameImgPath)
-    writeCenter(133, 7, selection.title, 0x000000)
-    drawBigText(102, 9, (selection.description or " ") .. "\n \n" .. "Разработчик: " .. selection.author)
 
-    for i = 1, #games do
-        local bgColor = selection == games[i] and 0xA890AA or 0xE3E3E3
-    end
-
-    local currentCurrency = casino.getCurrency()
-    if state.currencyDropdown then
-        local currencyLen = #currencies
-        for i = 1, currencyLen do
-            drawCurrency(2, 43 - 4 * (currencyLen - i), currencies[i], currencies[i] == currentCurrency)
-        end
-    end
-    drawRectangleWithCenterText(2, 46, 46, 1, "Текущая валюта", 0x431148, 0xFFFFFF)
-    drawCurrency(2, 47, currentCurrency)
-    buffer.drawText(40, 48, 0, "Сменить")
-
-    if (state.devMode) then
-        drawRectangleWithCenterText(51, 40, 50, 5, "Обновить", 0x431148, 0xffffff)
-    else
-        if selection.available then
-            drawRectangleWithCenterText(51, 40, 50, 5, "Играть", 0x431148, 0xffffff)
-        else
-            drawRectangleWithCenterText(51, 40, 50, 5, "Временно недоступно", 0x433b44, 0xffffff)
-        end
-    end
-    buffer.drawChanges()
-end
 
 local function removeUsers()
     local users = table.pack(computer.users())
@@ -242,7 +206,6 @@ end
 local function handlePim()
     if casino.container.getInventoryName() == 'pim' then
         removeUsers()
-        casino.setCurrency(currencies[1])
         buffer.setResolution(60,19)
         buffer.drawChanges()
         local frame = 0
@@ -264,8 +227,6 @@ local function handlePim()
                     buffer.drawText(23, 15, 0x46c8e3, '⣇⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣸')
                     buffer.drawText(20, 17, 0xFFFFFF, 'Валюта: Железные блоки')
                     buffer.drawText(26, 19, 0x000000, 'By Tumko')
-                    drawStatic()
-                    drawDynamic()
                     buffer.drawChanges()
                     
                     os.sleep(0.001)
@@ -278,6 +239,26 @@ local function handlePim()
                 frame = 0
             end
         end
+        computer.addUser(casino.container.getInventoryName())
+                    buffer.drawRectangle(1, 1, 60, 19, 0x1a1a1a, 0x0, ' ')
+                    buffer.drawText(26, 3, 0x4cb01e, 'OC Магазин')
+                    buffer.drawText(18, 6, 0xff903d, 'Встаньте на PIM чтобы войти')
+                    buffer.drawRectangle(25, 9, 12, 6, 0x101010, 0x0, ' ')
+                    buffer.drawText(23, 8, 0x46c8e3, '⡏⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⢹')
+                    buffer.drawText(23, 9, 0x46c8e3, '⡇ ⡏⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⢹ ⢸')
+                    buffer.drawText(23, 10, 0x46c8e3, '⡇ ⡇          ⢸ ⢸')
+                    buffer.drawText(23, 11, 0x46c8e3, '⡇ ⡇          ⢸ ⢸')
+                    buffer.drawText(23, 12, 0x46c8e3, '⡇ ⡇          ⢸ ⢸')
+                    buffer.drawText(23, 13, 0x46c8e3, '⡇ ⡇          ⢸ ⢸')
+                    buffer.drawText(23, 14, 0x46c8e3, '⡇ ⣇⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣸ ⢸')
+                    buffer.drawText(23, 15, 0x46c8e3, '⣇⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣸')
+                    buffer.drawText(20, 17, 0xFFFFFF, 'Валюта: Железные блоки')
+                    buffer.drawText(26, 19, 0x000000, 'By Tumko')
+                    buffer.drawChanges()
+        os.sleep(0.001)
+        drawStatic()
+        
+        buffer.drawChanges()
     end
 end
 
@@ -299,7 +280,7 @@ end
 initLauncher()
 buffer.flush()
 drawStatic()
-drawDynamic()
+
 
 if settings.PAYMENT_METHOD == 'PIM' then event.listen('player_off', onPimPlayerOff) end
 
@@ -320,11 +301,11 @@ while true do
                 end
             end
             state.currencyDropdown = false
-            drawDynamic()
+            
             goto continue
         elseif x >= 2 and y >= 46 and x <= 92 and y <= 50 and state.selection > 0 then
             state.currencyDropdown = true
-            drawDynamic()
+            
         end
 
         -- Left menu buttons
@@ -332,7 +313,7 @@ while true do
             local selection = math.floor((y - 3) / 4)
             if (selection <= #games) then
                 state.selection = selection
-                drawDynamic()
+                
             end
         end
 
@@ -344,7 +325,7 @@ while true do
                 buffer.drawChanges()
                 
                 drawRectangleWithCenterText(51, 40, 50, 5, "Обновить", 0x431148, 0xffffff)
-                drawDynamic()
+                
             else
                 if selection.available then
                     casino.downloadFile(REPOSITORY .. "/apps/" .. selection.file, "/home/apps/" .. selection.file)
@@ -353,7 +334,7 @@ while true do
                     CURRENT_APP = nil
                     casino.gameIsOver()
                     drawStatic()
-                    drawDynamic()
+                    
                 end
             end
         end
@@ -376,7 +357,7 @@ while true do
                 component.gpu.setForeground(0xffffff);
                 shell.execute("edit " .. lib.path)
                 drawStatic()
-                drawDynamic()
+                
             end
         end
 
@@ -385,7 +366,7 @@ while true do
             state.devMode = not state.devMode
             state.selection = 1
             drawStatic()
-            drawDynamic()
+            
         end
 
         -- Reset button
@@ -397,7 +378,7 @@ while true do
         if x >= 156 and y == 3 and state.devMode then
             state.selection = 0
             drawStatic()
-            drawDynamic()
+            
         end
     end
     if settings.PAYMENT_METHOD == 'PIM' then handlePim() end
