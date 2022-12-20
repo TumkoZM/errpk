@@ -190,6 +190,7 @@ end
 
 
 
+
 local function removeUsers()
     local users = table.pack(computer.users())
     for i = 1, #users do
@@ -206,6 +207,7 @@ end
 local function handlePim()
     if casino.container.getInventoryName() == 'pim' then
         removeUsers()
+        casino.setCurrency(currencies[1])
         buffer.setResolution(60,19)
         buffer.drawChanges()
         local frame = 0
@@ -264,7 +266,7 @@ end
 
 
 buffer.flush()
-
+drawStatic()
 
 
 if settings.PAYMENT_METHOD == 'PIM' then event.listen('player_off', onPimPlayerOff) end
@@ -318,7 +320,7 @@ while true do
                     local result, errorMsg = pcall(loadfile("/home/apps/" .. selection.file))
                     CURRENT_APP = nil
                     casino.gameIsOver()
-                    
+                    drawStatic()
                     
                 end
             end
@@ -341,7 +343,7 @@ while true do
                 component.gpu.setBackground(0);
                 component.gpu.setForeground(0xffffff);
                 shell.execute("edit " .. lib.path)
-                
+                drawStatic()
                 
             end
         end
@@ -350,7 +352,7 @@ while true do
         if x >= 157 and y == 1 and isAdmin(p) then
             state.devMode = not state.devMode
             state.selection = 1
-            
+            drawStatic()
             
         end
 
@@ -362,7 +364,7 @@ while true do
         -- Libs configuration
         if x >= 156 and y == 3 and state.devMode then
             state.selection = 0
-            
+            drawStatic()
             
         end
     end
