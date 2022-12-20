@@ -262,24 +262,9 @@ local function handlePim()
     end
 end
 
-local function initLauncher()
-    for i = 1, #requiredDirectories do
-        shell.execute("md " .. requiredDirectories[i])
-    end
-    for i = 1, #libs do
-        casino.downloadFile(libs[i].url, libs[i].path)
-    end
-    games = require("games")
-    currencies = require("currencies")
-    image = require("image")
-    buffer = require("doubleBuffering")
-    colorlib = require("color")
-    casino.setCurrency(currencies[1])
-end
 
-initLauncher()
 buffer.flush()
-drawStatic()
+
 
 
 if settings.PAYMENT_METHOD == 'PIM' then event.listen('player_off', onPimPlayerOff) end
@@ -333,7 +318,7 @@ while true do
                     local result, errorMsg = pcall(loadfile("/home/apps/" .. selection.file))
                     CURRENT_APP = nil
                     casino.gameIsOver()
-                    drawStatic()
+                    
                     
                 end
             end
@@ -356,7 +341,7 @@ while true do
                 component.gpu.setBackground(0);
                 component.gpu.setForeground(0xffffff);
                 shell.execute("edit " .. lib.path)
-                drawStatic()
+                
                 
             end
         end
@@ -365,7 +350,7 @@ while true do
         if x >= 157 and y == 1 and isAdmin(p) then
             state.devMode = not state.devMode
             state.selection = 1
-            drawStatic()
+            
             
         end
 
@@ -377,7 +362,7 @@ while true do
         -- Libs configuration
         if x >= 156 and y == 3 and state.devMode then
             state.selection = 0
-            drawStatic()
+            
             
         end
     end
