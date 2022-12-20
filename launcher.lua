@@ -264,11 +264,20 @@ local function handlePim()
                     buffer.drawText(23, 15, 0x46c8e3, '⣇⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣸')
                     buffer.drawText(20, 17, 0xFFFFFF, 'Валюта: Железные блоки')
                     buffer.drawText(26, 19, 0x000000, 'By Tumko')
+                    drawStatic()
+                    drawDynamic()
                     buffer.drawChanges()
                     
                     os.sleep(0.001)
                 end
-       
+            else
+                frame = frame + 5
+                os.sleep(0.001)
+            end
+            if frame > 150 then
+                frame = 0
+            end
+        end
     end
 end
 
