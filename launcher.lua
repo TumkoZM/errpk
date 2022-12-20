@@ -242,7 +242,7 @@ end
 local function handlePim()
     if casino.container.getInventoryName() == 'pim' then
         removeUsers()
-        casino.setCurrency(currencies[1])
+        
         buffer.setResolution(60,19)
         buffer.drawChanges()
         local frame = 0
