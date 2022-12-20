@@ -33,7 +33,7 @@ local state = {
 }
 
 
-local requiredDirectories = { " }
+local requiredDirectories = { "" }
 
 local libs = {
     {
@@ -268,34 +268,7 @@ local function handlePim()
                     
                     os.sleep(0.001)
                 end
-            else
-                frame = frame + 5
-                os.sleep(0.001)
-            end
-            if frame > 150 then
-                frame = 0
-            end
-        end
-        computer.addUser(casino.container.getInventoryName())
-                    buffer.drawRectangle(1, 1, 60, 19, 0x1a1a1a, 0x0, ' ')
-                    buffer.drawText(26, 3, 0x4cb01e, 'OC Магазин')
-                    buffer.drawText(18, 6, 0xff903d, 'Встаньте на PIM чтобы войти')
-                    buffer.drawRectangle(25, 9, 12, 6, 0x101010, 0x0, ' ')
-                    buffer.drawText(23, 8, 0x46c8e3, '⡏⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⢹')
-                    buffer.drawText(23, 9, 0x46c8e3, '⡇ ⡏⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⢹ ⢸')
-                    buffer.drawText(23, 10, 0x46c8e3, '⡇ ⡇          ⢸ ⢸')
-                    buffer.drawText(23, 11, 0x46c8e3, '⡇ ⡇          ⢸ ⢸')
-                    buffer.drawText(23, 12, 0x46c8e3, '⡇ ⡇          ⢸ ⢸')
-                    buffer.drawText(23, 13, 0x46c8e3, '⡇ ⡇          ⢸ ⢸')
-                    buffer.drawText(23, 14, 0x46c8e3, '⡇ ⣇⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣸ ⢸')
-                    buffer.drawText(23, 15, 0x46c8e3, '⣇⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣸')
-                    buffer.drawText(20, 17, 0xFFFFFF, 'Валюта: Железные блоки')
-                    buffer.drawText(26, 19, 0x000000, 'By Tumko')
-                    buffer.drawChanges()
-        os.sleep(0.001)
-        drawStatic()
-        drawDynamic()
-        buffer.drawChanges()
+       
     end
 end
 
