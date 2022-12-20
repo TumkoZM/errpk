@@ -294,15 +294,14 @@ local function handlePim()
                     buffer.drawChanges()
         os.sleep(0.001)
         drawStatic()
-        
+        drawDynamic()
         buffer.drawChanges()
     end
 end
 
-
 buffer.flush()
 drawStatic()
-
+drawDynamic()
 
 if settings.PAYMENT_METHOD == 'PIM' then event.listen('player_off', onPimPlayerOff) end
 
