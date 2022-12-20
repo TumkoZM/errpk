@@ -243,7 +243,7 @@ local function handlePim()
     if casino.container.getInventoryName() == 'pim' then
         removeUsers()
         
-        buffer.setResolution(60,19)
+        buffer.setResolution(76,24)
         buffer.drawChanges()
         local frame = 0
         while casino.container.getInventoryName() == 'pim' do
