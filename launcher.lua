@@ -299,6 +299,22 @@ local function handlePim()
     end
 end
 
+local function initLauncher()
+    for i = 1, #requiredDirectories do
+        shell.execute("md " .. requiredDirectories[i])
+    end
+    for i = 1, #libs do
+        casino.downloadFile(libs[i].url, libs[i].path)
+    end
+    games = require("games")
+    currencies = require("currencies")
+    image = require("image")
+    buffer = require("doubleBuffering")
+    colorlib = require("color")
+    casino.setCurrency(currencies[1])
+end
+
+initLauncher()
 buffer.flush()
 drawStatic()
 drawDynamic()
