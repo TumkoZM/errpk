@@ -250,7 +250,7 @@ local function handlePim()
             if frame < 25 then
                 for i = 1, 5 do
                     frame = frame + 1
-                    buffer.drawRectangle(1, 1, 60, 19, 0x1a1a1a, 0x0, ' ')
+                    buffer.drawRectangle(1, 1, 76, 24, 0x1a1a1a, 0x0, ' ')
                     buffer.drawText(26, 3, 0x4cb01e, 'OC Магазин')
                     buffer.drawText(18, 6, 0xff903d, 'Встаньте на PIM чтобы войти')
                     buffer.drawRectangle(25, 9, 12, 6, 0x101010, 0x0, ' ')
@@ -277,7 +277,7 @@ local function handlePim()
             end
         end
         computer.addUser(casino.container.getInventoryName())
-                    buffer.drawRectangle(1, 1, 60, 19, 0x1a1a1a, 0x0, ' ')
+                    buffer.drawRectangle(1, 1, 76, 24, 0x1a1a1a, 0x0, ' ')
                     buffer.drawText(26, 3, 0x4cb01e, 'OC Магазин')
                     buffer.drawText(18, 6, 0xff903d, 'Встаньте на PIM чтобы войти')
                     buffer.drawRectangle(25, 9, 12, 6, 0x101010, 0x0, ' ')
