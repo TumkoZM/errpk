@@ -159,9 +159,9 @@ local function drawStatic()
     computer.addUser(casino.container.getInventoryName())
     buffer.drawText(17, 1, 0xff903d, casino.container.getInventoryName())
     buffer.drawText(4, 3, 0x44e008, 'Имя предмета                        Доступно             Цена')
-    buffer.drawText(1, 2, 0x44e008, '───────────────────────────────────────────────────────────────────────────────')
-    buffer.drawText(1, 4, 0x44e008, '───────────────────────────────────────────────────────────────────────────────')
-    buffer.drawText(1, 23, 0x44e008, '───────────────────────────────────────────────────────────────────────────────')
+    buffer.drawText(1, 1, 0xFFFFFF, '───────────────────────────────────────────────────────────────────────────────')
+    
+    buffer.drawText(1, 23, 0xFFFFFF, '───────────────────────────────────────────────────────────────────────────────')
     buffer.drawText(4, 24, 0x4cb01e, "Баланс ЖБ: ")
     buffer.drawText(15, 24, 0xff903d, getJBQty())
     
