@@ -158,7 +158,7 @@ local function drawStatic()
     buffer.drawText(4, 1, 0x43ba0d, 'Авторизован:')
     computer.addUser(casino.container.getInventoryName())
     buffer.drawText(17, 1, 0xff903d, casino.container.getInventoryName())
-    buffer.drawText(4, 3, 0x44e008, 'Имя предмета                        Доступно             Цена')
+    buffer.drawText(6, 6, 0xFFFFFF, 'Имя предмета                        Доступно             Цена')
     
     buffer.drawText(4, 5, 0xFFFFFF, '┌────────────────────────────────────────────────────────────────────┐')
     buffer.drawText(4, 6, 0xFFFFFF, '│')
