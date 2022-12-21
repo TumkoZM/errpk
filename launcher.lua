@@ -161,9 +161,9 @@ local function drawStatic()
     buffer.drawText(4, 3, 0x44e008, 'Имя предмета                        Доступно             Цена')
     buffer.drawText(1, 1, 0xFFFFFF, '───────────────────────────────────────────────────────────────────────────────')
     
-    buffer.drawText(1, 25,0xFFFFFF, '⣇⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣸')
-    buffer.drawText(4, 24, 0x4cb01e, "Баланс ЖБ: ")
-    buffer.drawText(15, 24, 0xff903d, getJBQty())
+    buffer.drawText(1, 24,0xFFFFFF, '⣇⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣸')
+    buffer.drawText(4, 23, 0x4cb01e, "Баланс ЖБ: ")
+    buffer.drawText(15, 23, 0xff903d, getJBQty())
     
     
     os.sleep(0.001)
