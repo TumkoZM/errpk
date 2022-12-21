@@ -239,7 +239,7 @@ local function drawStatic()
     buffer.drawText(76, 21, 0xFFFFFF, '│')
     buffer.drawText(76, 22, 0xFFFFFF, '│')
     buffer.drawText(76, 23, 0xFFFFFF, '│')
-    buffer.drawText(76, 24, 0xFFFFFF, '└──────────────────────────────────────────────────────────────────────────┘')
+    buffer.drawText(1, 24, 0xFFFFFF, '└──────────────────────────────────────────────────────────────────────────┘')
    
     buffer.drawText(4, 23, 0x4cb01e, "Баланс ЖБ: ")
     buffer.drawText(15, 23, 0xff903d, getJBQty())
