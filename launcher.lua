@@ -242,7 +242,7 @@ local function drawStatic()
     buffer.drawText(17, 23, 0xff903d, casino.container.getInventoryName())
     buffer.drawText(60, 2, 0x4cb01e, "Баланс ЖБ: ")
     buffer.drawText(71, 2, 0xff903d, getJBQty())
-    
+    buffer.drawText(35, 1, 0x46c8e3, 'Error Shop')
     
     os.sleep(0.001)
     if (state.devMode) then
