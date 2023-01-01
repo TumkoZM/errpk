@@ -110,10 +110,7 @@ end
 
 
 
-gpu.setResolution(80,25)
-gpu.setBackground(0x000000)
-gpu.setForeground(0xFFFFFF)
-os.execute("cls")
+
  
 REPOSITORY = settings.REPOSITORY
 
@@ -256,7 +253,7 @@ function getJBQty()
     end
     return JBqty
 end
-
+os.execute("cls")
 local function drawStatic()
     buffer.setResolution(76,24)
     drawRectangleWithCenterText(1, 1, 76, 24, settings.TITLE, 0x1a1a1a, 0x1a1a1a)
@@ -349,7 +346,7 @@ local function drawStatic()
     buffer.drawText(71, 2, 0xff903d, getJBQty())
     buffer.drawText(35, 1, 0x46c8e3, 'Error Shop')
     buffer.drawText(36, 4,0xFFFFFF , 'Магазин')
-    os.execute("cls")
+    
     drawlist()
     
     os.sleep(0.001)
