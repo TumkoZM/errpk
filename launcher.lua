@@ -348,8 +348,6 @@ local function drawStatic()
     buffer.drawText(36, 4,0xFFFFFF , 'Магазин')
     
     drawlist()
-local yPos = 20
-    gpu.set(20,yPos,items.shop[ind[i]].text)
     os.sleep(0.001)
     if (state.devMode) then
         writeCenter(158, 1, "{dev}", 0xE700FF)
