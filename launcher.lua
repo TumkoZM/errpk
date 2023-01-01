@@ -348,7 +348,23 @@ local function drawStatic()
     buffer.drawText(36, 4,0xFFFFFF , 'Магазин')
     
     drawlist()
-    
+    pos_str = {}
+  local yPos = 4
+  for i = 1,11 do
+    square(1,yPos,77,1,0x000000)
+    local i = drawFrom + i
+    if items.shop[ind[i]] then
+      table.insert(pos_str,{yPos,ind[i]})
+      gpu.set(4,yPos,items.shop[ind[i]].text)
+      gpu.set(54,yPos,items.shop[ind[i]].price)
+      if tonumber(items.shop[ind[i]].available) > 0 then
+        gpu.set(64,yPos,items.shop[ind[i]].available)
+      else
+        gpu.set(64,yPos,"-")
+      end
+    end
+    yPos = yPos + 2
+  end
     os.sleep(0.001)
     if (state.devMode) then
         writeCenter(158, 1, "{dev}", 0xE700FF)
