@@ -9,6 +9,112 @@ local currencies
 local image
 local buffer
 local colorlib
+local unicode = require("unicode")
+local event = require("event")
+local computer = require("computer")
+local fs = require("filesystem")
+local com = require('component')
+--local interface = com.me_interface
+local gpu = com.gpu
+local choice,run = false,true
+local drawFrom = 0
+local items,pos_str = {},{}
+local patch_items = "/home/items.lua"
+
+if not fs.exists(patch_items) then
+  local f = io.open(patch_items,'w')
+  f:write("{".."\n")
+  f:write("  shop = {".."\n")
+  --local data = interface.getItemsInNetwork()
+  for item = 1,#data do
+    if data[item] then
+      f:write('    { text = "'..data[item].label..'", price = "0", label = "'..data[item].label..'" },'..'\n')
+    end
+  end
+  f:write("  }".."\n")
+  f:write("}")
+  f:close()
+  os.execute("edit "..patch_items)
+  os.exit()
+end
+
+local f, err = io.open(patch_items, "r")
+if not f then
+  error(err, 2)
+end
+local text = f:read('*a')
+f:close() 
+local chunk, err = load("return " .. text, "=items.lua", "t")
+if not chunk then 
+  error(err, 2)
+else
+  items = chunk()
+end
+table.sort(items.shop, function(a,b) if a.text then return a.text < b.text end end)
+for i = 1,#items.shop do
+  --items.shop[i].available = "0"
+  items.shop[i].available = tostring(math.random(0,10))
+end
+
+local ind = {}
+for i = 1,#items.shop do
+  if items.shop[i].available ~= "0" then
+    table.insert(ind,i)
+  end
+end
+
+local function square(x,y,width,height,color)
+  if color and gpu.getBackground() ~= color then
+    gpu.setBackground(color)
+  end
+  gpu.fill(x,y,width,height," ")
+end
+
+local function drawlist()
+  pos_str = {}
+  local yPos = 4
+  for i = 1,11 do
+    square(1,yPos,77,1,0x000000)
+    local i = drawFrom + i
+    if items.shop[ind[i]] then
+      gpu.setForeground(0xFFFFFF)
+      table.insert(pos_str,{yPos,ind[i]})
+      gpu.set(4,yPos,items.shop[ind[i]].text)
+      gpu.set(54,yPos,items.shop[ind[i]].price)
+      if tonumber(items.shop[ind[i]].available) > 0 then
+        gpu.set(64,yPos,items.shop[ind[i]].available)
+      else
+        gpu.set(64,yPos,"-")
+      end
+    end
+    yPos = yPos + 2
+  end
+end
+
+local function scroll(n)
+  if n == 1 or n == "+" then
+    drawFrom = drawFrom - 11
+  else
+    drawFrom = drawFrom + 11
+  end
+  if drawFrom >= #ind - 11 then
+    drawFrom = #ind - 11
+  end
+  if drawFrom <= 0 then
+    drawFrom = 0
+  end
+  drawlist()
+end
+
+
+
+
+
+
+gpu.setResolution(80,25)
+gpu.setBackground(0x000000)
+gpu.setForeground(0xFFFFFF)
+os.execute("cls")
  
 REPOSITORY = settings.REPOSITORY
 
@@ -244,6 +350,8 @@ local function drawStatic()
     buffer.drawText(71, 2, 0xff903d, getJBQty())
     buffer.drawText(35, 1, 0x46c8e3, 'Error Shop')
     buffer.drawText(36, 4,0xFFFFFF , 'Магазин')
+os.execute("cls")
+drawlist()
 
     os.sleep(0.001)
     if (state.devMode) then
