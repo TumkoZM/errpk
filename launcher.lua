@@ -70,27 +70,7 @@ local function square(x,y,width,height,color)
   gpu.fill(x,y,width,height," ")
 end
 
-local function drawlist()
-  pos_str = {}
-  local yPos = 4
-  for i = 1,11 do
-    square(1,yPos,77,1,0x000000)
-    local i = drawFrom + i
-    if items.shop[ind[i]] then
-      table.insert(pos_str,{yPos,ind[i]})
-      gpu.set(4,yPos,items.shop[ind[i]].text)
-      gpu.set(54,yPos,items.shop[ind[i]].price)
-      if tonumber(items.shop[ind[i]].available) > 0 then
-        gpu.set(64,yPos,items.shop[ind[i]].available)
-      else
-        gpu.set(64,yPos,"-")
-      end
-    end
-    yPos = yPos + 2
-  end
-if e[1] == "key_down" then
-    i
-end
+
 
 local function scroll(n)
   if n == 1 or n == "+" then
