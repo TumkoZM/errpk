@@ -954,8 +954,6 @@ while run do
   elseif e[1] == "scroll" then
     scroll(e[5])
   elseif e[1] == "touch" then
-    gpu.setBackground(0x000000)
-    gpu.setForeground(0xFFFFFF)
     gpu.set(1,1,e[3].."  "..e[4].." ")
     choice = false
     for i = 1,#pos_str do
