@@ -402,7 +402,17 @@ local function drawStatic()
     buffer.drawText(71, 2, 0xff903d, getJBQty())
     buffer.drawText(35, 1, 0x46c8e3, 'Error Shop')
     buffer.drawText(36, 4,0xFFFFFF , 'Магазин')
-    magz()
+    drawlist()
+      gpu.set(10,1,"choice = "..choice.."  ")
+      square(1,e[4],77,1,0xDEDE6C)
+      gpu.setForeground(0x3366CC)
+      gpu.set(4,e[4],items.shop[choice].text)
+      gpu.set(54,e[4],items.shop[choice].price)
+      if tonumber(items.shop[choice].available) > 0 then
+        gpu.set(64,e[4],items.shop[choice].available)
+      else
+        gpu.set(64,e[4],"-")
+      end
 
 
     os.sleep(0.001)
