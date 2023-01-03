@@ -402,8 +402,7 @@ local function drawStatic()
     buffer.drawText(71, 2, 0xff903d, getJBQty())
     buffer.drawText(35, 1, 0x46c8e3, 'Error Shop')
     buffer.drawText(36, 4,0xFFFFFF , 'Магазин')
-    os.execute("cls")
-    drawlist()
+    magz()
 
 
     os.sleep(0.001)
@@ -535,12 +534,11 @@ local function handlePim()
                     buffer.drawChanges()
         os.sleep(0.001)
         --drawStatic()
-        drawlist()
         drawDynamic()
         buffer.drawChanges()
     end
 end
-while run do
+local function magz()
   local e = {event.pull(1)}
   if e[1] == "key_down" then
     if e[4] == 29 then
@@ -553,9 +551,7 @@ while run do
   elseif e[1] == "scroll" then
     scroll(e[5])
   elseif e[1] == "touch" then
-    gpu.setBackground(0x000000)
-    drawlist()
-    gpu.setForeground(0xFFFFFF)
+    drawlist()   
     gpu.set(1,1,e[3].."  "..e[4].." ")
     choice = false
     for i = 1,#pos_str do
