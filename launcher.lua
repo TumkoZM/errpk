@@ -554,6 +554,7 @@ while run do
     scroll(e[5])
   elseif e[1] == "touch" then
     gpu.setBackground(0x000000)
+    drawlist()
     gpu.setForeground(0xFFFFFF)
     gpu.set(1,1,e[3].."  "..e[4].." ")
     choice = false
