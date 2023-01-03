@@ -273,22 +273,22 @@ end
  
 local function drawlist()
   pos_str = {}
-  local yPos = 4
+  local yPos = 8
   for i = 1,11 do
-    square(1,yPos,77,1,0x000000)
+    square(1,yPos,27,2,0x000000)
     local i = drawFrom + i
     if items.shop[ind[i]] then
       gpu.setForeground(0xFFFFFF)
       table.insert(pos_str,{yPos,ind[i]})
-      gpu.set(4,yPos,items.shop[ind[i]].text)
-      gpu.set(54,yPos,items.shop[ind[i]].price)
+      buffer.drawText(5,yPos,0xFFFFFF,items.shop[ind[i]].text)
+      buffer.drawText(65,yPos,0xFFFFFF,items.shop[ind[i]].price)
       if tonumber(items.shop[ind[i]].available) > 0 then
-        gpu.set(64,yPos,items.shop[ind[i]].available)
+        buffer.drawText(45,yPos,0xFFFFF,items.shop[ind[i]].available)
       else
-        gpu.set(64,yPos,"-")
+        buffer.drawText(45,yPos,0xFFFFFF,"-")
       end
     end
-    yPos = yPos + 2
+    yPos = yPos + 001
   end
 end
  
@@ -309,7 +309,7 @@ function getJBQty()
     end
     return JBqty
 end
-os.execute("cls")
+--os.execute("cls")
 local function drawStatic()
     buffer.setResolution(76,24)
     drawRectangleWithCenterText(1, 1, 76, 24, settings.TITLE, 0x1a1a1a, 0x1a1a1a)
@@ -401,20 +401,8 @@ local function drawStatic()
     buffer.drawText(60, 2, 0x4cb01e, "Баланс ЖБ: ")
     buffer.drawText(71, 2, 0xff903d, getJBQty())
     buffer.drawText(35, 1, 0x46c8e3, 'Error Shop')
-    buffer.drawText(36, 4,0xFFFFFF , 'Магазин')
+    buffer.drawText(36, 4,0xFFFFFF , 'Магазин')   
     drawlist()
-      gpu.set(10,1,"choice = "..choice.."  ")
-      square(1,e[4],77,1,0xDEDE6C)
-      gpu.setForeground(0x3366CC)
-      gpu.set(4,e[4],items.shop[choice].text)
-      gpu.set(54,e[4],items.shop[choice].price)
-      if tonumber(items.shop[choice].available) > 0 then
-        gpu.set(64,e[4],items.shop[choice].available)
-      else
-        gpu.set(64,e[4],"-")
-      end
-
-
     os.sleep(0.001)
     if (state.devMode) then
         writeCenter(158, 1, "{dev}", 0xE700FF)
@@ -543,7 +531,7 @@ local function handlePim()
                     buffer.drawText(34, 24, 0x000000, 'By Tumko')
                     buffer.drawChanges()
         os.sleep(0.001)
-        --drawStatic()
+        drawStatic()
         drawDynamic()
         buffer.drawChanges()
     end
@@ -970,4 +958,3 @@ function fieldSymbolInput:new(x, y, lengthField, cursorSymbol, customInitTextOnF
     self.__index = self
     return obj
 end
-
