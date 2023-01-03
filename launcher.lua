@@ -275,7 +275,6 @@ local function drawlist()
   pos_str = {}
   local yPos = 8
   for i = 1,11 do
-    square(1,yPos,27,2,0x000000)
     local i = drawFrom + i
     if items.shop[ind[i]] then
       gpu.setForeground(0xFFFFFF)
