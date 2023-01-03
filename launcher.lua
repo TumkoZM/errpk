@@ -88,6 +88,28 @@ local function drawlist()
     end
     yPos = yPos + 2
   end
+if e[1] == "key_down" then
+    if e[4] == 29 then
+      run = false
+    elseif e[4] == 200 then
+      scroll("+")
+    elseif e[4] == 208 then
+      scroll("-")
+    end
+  elseif e[1] == "scroll" then
+    scroll(e[5])
+  elseif e[1] == "touch" then
+    gpu.setBackground(0x000000)
+    gpu.setForeground(0xFFFFFF)
+    gpu.set(1,1,e[3].."  "..e[4].." ")
+    choice = false
+    for i = 1,#pos_str do
+      if e[3] <= 77 and e[4] == pos_str[i][1] then
+        choice = pos_str[i][2]
+        break
+      end
+    end
+end
 end
 
 local function scroll(n)
@@ -554,23 +576,6 @@ local function handlePim()
         os.sleep(0.001)
         --drawStatic()
         drawlist()
-    
-    if e[4] == 200 then
-      scroll("+")
-    elseif e[4] == 208 then
-      scroll("-")
-    end
-  elseif e[1] == "scroll" then
-    scroll(e[5])
-  elseif e[1] == "touch" then
-    gpu.set(1,1,e[3].."  "..e[4].." ")
-    choice = false
-    for i = 1,#pos_str do
-      if e[3] <= 77 and e[4] == pos_str[i][1] then
-        choice = pos_str[i][2]
-        break
-      end
-    end
         drawDynamic()
         buffer.drawChanges()
     end
