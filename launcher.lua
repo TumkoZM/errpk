@@ -476,7 +476,7 @@ local function handlePim()
                     buffer.drawText(34, 24, 0x000000, 'By Tumko')
                     buffer.drawChanges()
         os.sleep(0.001)
-        drawStatic()
+        drawlisf()
         drawDynamic()
         buffer.drawChanges()
     end
