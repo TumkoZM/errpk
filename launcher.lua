@@ -554,10 +554,8 @@ local function handlePim()
         os.sleep(0.001)
         --drawStatic()
         drawlist()
-if e[1] == "key_down" then
-    if e[4] == 29 then
-      run = false
-    elseif e[4] == 200 then
+    
+    if e[4] == 200 then
       scroll("+")
     elseif e[4] == 208 then
       scroll("-")
