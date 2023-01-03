@@ -294,7 +294,7 @@ local e = {event.pull(1)}
   
     if e[4] == 200 then
       scroll("+")
-    elseif e[4] == 208 then
+    if e[4] == 208 then
       scroll("-")
     end
   elseif e[1] == "scroll" then
@@ -310,7 +310,7 @@ local e = {event.pull(1)}
     end
     if choice then
       drawlist()
-      buffer.drawText(10,1,0xFFFFFF,"choice = "..choice.."  ")
+      buffer.drawText(10,11,0xFFFFFF,"choice = "..choice.."  ")
       square(1,e[4],77,1,0xDEDE6C)
       gpu.setForeground(0x3366CC)
       buffer.drawText(4,e[4],0xFFFFFF,items.shop[choice].text)
@@ -322,7 +322,6 @@ local e = {event.pull(1)}
       end
     end
   end
-end
 end
  
 
