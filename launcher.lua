@@ -290,38 +290,6 @@ local function drawlist()
     end
     yPos = yPos + 001
   end
-local e = {event.pull(1)}
-  
-    if e[4] == 200 then
-      scroll("+")
-    if e[4] == 208 then
-      scroll("-")
-    end
-  elseif e[1] == "scroll" then
-    scroll(e[5])
-  elseif e[1] == "touch" then
-    buffer.drawText(1,1,0xFFFFFF,e[3].."  "..e[4].." ")
-    choice = false
-    for i = 1,#pos_str do
-      if e[3] <= 77 and e[4] == pos_str[i][1] then
-        choice = pos_str[i][2]
-        break
-      end
-    end
-    if choice then
-      drawlist()
-      buffer.drawText(10,11,0xFFFFFF,"choice = "..choice.."  ")
-      square(1,e[4],77,1,0xDEDE6C)
-      gpu.setForeground(0x3366CC)
-      buffer.drawText(4,e[4],0xFFFFFF,items.shop[choice].text)
-      buffer.drawText(54,e[4],0xFFFFFF,items.shop[choice].price)
-      if tonumber(items.shop[choice].available) > 0 then
-        buffer.drawText(64,e[4],0xFFFFFF,items.shop[choice].available)
-      else
-        buffer.drawText(64,e[4],0xFFFFFF,"-")
-      end
-    end
-  end
 end
  
 
