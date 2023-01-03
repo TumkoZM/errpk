@@ -238,34 +238,8 @@ local function drawBigText(x, y, text)
         buffer.drawText(x, y + i, 0x000000, lines[i + 1])
     end
 end
-paste
-Search...
 
-CharlyZM
- 
-Advertisement
-CharlyZM
-Untitled
-CHARLYZM
-JAN 1ST, 2023
-9
-0
-NEVER
-ADD COMMENT
-3.54 KB | None |  
-    
-local unicode = require("unicode")
-local event = require("event")
-local computer = require("computer")
-local fs = require("filesystem")
-local com = require('component')
---local interface = com.me_interface
-local gpu = com.gpu
-local choice,run = false,true
-local drawFrom = 0
-local items,pos_str = {},{}
-local patch_items = "/home/items.lua"
- 
+
 if not fs.exists(patch_items) then
   local f = io.open(patch_items,'w')
   f:write("{".."\n")
