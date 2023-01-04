@@ -1,4 +1,4 @@
-local casino = require("casino")-22:13
+local casino = require("casino")--22:13
 local event = require("event")
 local shell = require("shell")
 local unicode = require("unicode")
