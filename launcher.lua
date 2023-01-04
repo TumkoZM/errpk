@@ -348,7 +348,7 @@ local function drawStatic()
     buffer.drawText(73, 21, 0xFFFFFF, '│')
     buffer.drawText(4, 22, 0xFFFFFF,'└────────────────────────────────────────────────────────────────────┘')
 
-    buffer.drawText(1, 1, 0xFFFFFF, '┌──────────────────────────────────────────────────────────┬───────────────┐')
+    buffer.drawText(1, 1, 0xFFFFFF, '┌──────────────────────────────────────────────────────────┬────────────────┐')
     buffer.drawText(1, 2, 0xFFFFFF, '│')
     buffer.drawText(1, 3, 0xFFFFFF, '┤')
     buffer.drawText(1, 4, 0xFFFFFF, '│')
