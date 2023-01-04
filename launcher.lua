@@ -1,4 +1,4 @@
-local casino = require("casino")--22:13
+local casino = require("casino")--22:52
 local event = require("event")
 local shell = require("shell")
 local unicode = require("unicode")
@@ -349,7 +349,7 @@ local function drawStatic()
     buffer.drawText(4, 22, 0xFFFFFF,'└────────────────────────────────────────────────────────────────────┘')
     buffer.drawText(34, 2, 0xFFFFFF, '└──────────┘')
     buffer.drawText(1, 1, 0xFFFFFF, '┌────────────────────────────────┐──────────')
-    buffer.drawText(44, 1, 0xFFFFFF, '┌─────────────┬────────────────┐')
+    buffer.drawText(45, 1, 0xFFFFFF, '┌─────────────┬────────────────┐')
     buffer.drawText(1, 2, 0xFFFFFF, '│')
     buffer.drawText(1, 3, 0xFFFFFF, '│')
     buffer.drawText(1, 4, 0xFFFFFF, '│')
