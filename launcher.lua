@@ -1,4 +1,4 @@
-local casino = require("casino")--20:36
+local casino = require("casino")--21:45
 local event = require("event")
 local shell = require("shell")
 local unicode = require("unicode")
@@ -313,7 +313,6 @@ local function drawStatic()
     buffer.setResolution(76,24)
     drawRectangleWithCenterText(1, 1, 76, 24, settings.TITLE, 0x1a1a1a, 0x1a1a1a)
     buffer.drawText(7, 6, 0xff381a, 'Имя предмета                        Доступно             Цена')
-    buffer.drawRectangle(4, 8, 68, 6, 0x000000, 0x5, ' ')
     buffer.drawText(3, 5, 0xFFFFFF, '┌────────────────────────────────────────────────────────────────────┐')
     buffer.drawText(3, 6, 0xFFFFFF, '│')
     buffer.drawText(3, 7, 0xFFFFFF, '├────────────────────────────────────────────────────────────────────')
