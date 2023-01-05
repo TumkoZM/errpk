@@ -555,9 +555,9 @@ local function handlePim()
         buffer.drawChanges()
     end
 end
-drawlist()
+
 while run do
-  drawlist()
+  
   local e = {event.pull(1)}
   if e[1] == "key_down" then
     if e[4] == 29 then
@@ -578,19 +578,6 @@ while run do
       if e[3] <= 77 and e[4] == pos_str[i][1] then
         choice = pos_str[i][2]
         break
-      end
-    end
-    if choice then
-      drawlist()
-      gpu.set(10,1,"choice = "..choice.."  ")
-      square(1,e[4],77,1,0xDEDE6C)
-      gpu.setForeground(0x3366CC)
-      gpu.set(4,e[4],items.shop[choice].text)
-      gpu.set(54,e[4],items.shop[choice].price)
-      if tonumber(items.shop[choice].available) > 0 then
-        gpu.set(64,e[4],items.shop[choice].available)
-      else
-        gpu.set(64,e[4],"-")
       end
     end
   end
