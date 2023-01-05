@@ -408,6 +408,7 @@ local function drawStatic()
     buffer.drawText(35, 1, 0x46c8e3, 'Error Shop')
     buffer.drawText(36, 4,0xFFFFFF , 'Магазин')   
     drawlist()
+    magzs()
     os.sleep(0.001)
     if (state.devMode) then
         writeCenter(158, 1, "{dev}", 0xE700FF)
@@ -544,7 +545,6 @@ end
 
 local function magzs()
   local e = {event.pull(1)}
-  drawlist()
   if e[1] == "key_down" then
     if e[4] == 29 then
       run = false
