@@ -1,4 +1,4 @@
-local casino = require("pril")--1:25
+local casino = require("pril")--1:45
 local event = require("event")
 local shell = require("shell")
 local unicode = require("unicode")
@@ -680,7 +680,7 @@ while true do
     if choice then
       drawlist()
     
-      square(1,e[4],77,1,0xDEDE6C)
+      square(5,e[4],66,1,0xDEDE6C)
       gpu.setForeground(0x3366CC)
       gpu.set(5,e[4],items.shop[choice].text)
       gpu.set(65,e[4],items.shop[choice].price)
