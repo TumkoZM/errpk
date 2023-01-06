@@ -288,7 +288,7 @@ local function drawlist()
 if choice then
       
       gpu.set(10,1,"choice = "..choice.."  ")
-      square(1,e[4],77,1,0xDEDE6C)
+      scr()
       end
 end
  
