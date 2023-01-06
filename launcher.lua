@@ -659,12 +659,9 @@ while true do
             drawDynamic()
         end
        local e = {event.pull(1)}
-  if e[1] == "key_down" then
-    if e[4] == 29 then
-      run = false
-    elseif e[4] == 200 then
+    if e[4] == 200 then
       scroll("+")
-    elseif e[4] == 208 then
+    if e[4] == 208 then
       scroll("-")
     end
   elseif e[1] == "scroll" then
@@ -682,15 +679,15 @@ while true do
     end
     if choice then
       drawlist()
-      gpu.set(10,1,"choice = "..choice.."  ")
+    
       square(1,e[4],77,1,0xDEDE6C)
       gpu.setForeground(0x3366CC)
-      gpu.set(4,e[4],items.shop[choice].text)
-      gpu.set(54,e[4],items.shop[choice].price)
+      gpu.set(5,e[4],items.shop[choice].text)
+      gpu.set(65,e[4],items.shop[choice].price)
       if tonumber(items.shop[choice].available) > 0 then
-        gpu.set(64,e[4],items.shop[choice].available)
+        gpu.set(45,e[4],items.shop[choice].available)
       else
-        gpu.set(64,e[4],"-")
+        gpu.set(45,e[4],"-")
       end
     end
   end
