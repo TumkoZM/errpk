@@ -276,7 +276,7 @@ local function drawlist()
       table.insert(pos_str,{yPos,ind[i]})
       buffer.drawText(5,yPos,0xFFFFFF,items.shop[ind[i]].text)
       buffer.drawText(65,yPos,0xFFFFFF,items.shop[ind[i]].price)
-      square(1,e[4],77,1,0xDEDE6C)
+  
       if tonumber(items.shop[ind[i]].available) > 0 then
         buffer.drawText(45,yPos,0xFFFFF,items.shop[ind[i]].available)
       else
@@ -285,17 +285,8 @@ local function drawlist()
     end
     yPos = yPos + 001
   end
-if choice then
-      
-      gpu.set(10,1,"choice = "..choice.."  ")
-      scr()
-      end
 end
- 
-local function scr()
-local yPos = 4
-    square(1,e[4],77,1,0xDEDE6C)
-end 
+
  
 
 
