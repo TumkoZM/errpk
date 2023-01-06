@@ -178,7 +178,7 @@ end
 local function writeCenter(x, y, text, color)
     buffer.drawText(math.floor(x - unicode.len(text) / 2), math.floor(y), color, text)
 end
-
+poksrcl()
 local function drawRectangleWithCenterText(x, y, width, height, text, bgColor, fgColor)
     buffer.drawRectangle(x, y, width, height, bgColor, 0, " ")
     writeCenter(width / 2 + x, height / 2 + y, text, fgColor)
