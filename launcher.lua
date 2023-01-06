@@ -549,7 +549,15 @@ local function handlePim()
                     buffer.drawText(33, 23, 0xFFFFFF, 'Авторизация')
                     buffer.drawText(34, 24, 0x000000, 'By Tumko')
                     buffer.drawChanges()
-        local e = {event.pull(1)}
+        mgg
+        os.sleep(0.001)
+        drawStatic()
+        drawDynamic()
+        buffer.drawChanges()
+    end
+end
+loxal function mgg()
+  local e = {event.pull(1)}
   if e[1] == "key_down" then
     if e[4] == 29 then
       run = false
@@ -572,13 +580,7 @@ local function handlePim()
       end
     end
   end
-        os.sleep(0.001)
-        drawStatic()
-        drawDynamic()
-        buffer.drawChanges()
-    end
 end
- 
 
 local function initLauncher()
     for i = 1, #requiredDirectories do
@@ -599,7 +601,7 @@ initLauncher()
 buffer.flush()
 drawStatic()
 drawDynamic()
-
+mgg()
 if settings.PAYMENT_METHOD == 'PIM' then event.listen('player_off', onPimPlayerOff) end
 
 while true do
