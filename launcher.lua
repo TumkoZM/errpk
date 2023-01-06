@@ -1,4 +1,4 @@
-local casino = require("pril")--1:45
+local casino = require("pril")--1:55
 local event = require("event")
 local shell = require("shell")
 local unicode = require("unicode")
@@ -69,30 +69,6 @@ local function square(x,y,width,height,color)
   end
   gpu.fill(x,y,width,height," ")
 end
-
-
-
-local function scroll(n)
-  if n == 1 or n == "+" then
-    drawFrom = drawFrom - 11
-  else
-    drawFrom = drawFrom + 11
-  end
-  if drawFrom >= #ind - 11 then
-    drawFrom = #ind - 11
-  end
-  if drawFrom <= 0 then
-    drawFrom = 0
-  end
-  drawlist()
-end
-
-
-
-
-
-
-
  
 REPOSITORY = settings.REPOSITORY
 
@@ -287,7 +263,20 @@ local function drawlist()
   end
 end
 
- 
+ local function scroll(n)
+  if n == 1 or n == "+" then
+    drawFrom = drawFrom - 11
+  else
+    drawFrom = drawFrom + 11
+  end
+  if drawFrom >= #ind - 11 then
+    drawFrom = #ind - 11
+  end
+  if drawFrom <= 0 then
+    drawFrom = 0
+  end
+  drawlist()
+end
 
 
 function getJBQty()
