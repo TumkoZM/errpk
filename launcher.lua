@@ -404,6 +404,7 @@ local function drawStatic()
     buffer.drawText(35, 1, 0x46c8e3, 'Error Shop')
     buffer.drawText(36, 4,0xFFFFFF , 'Магазин')   
     drawlist()
+    poksrcl()
     
     if choice then
       drawlist()
@@ -573,7 +574,7 @@ initLauncher()
 buffer.flush()
 drawStatic()
 drawDynamic()
-while run do
+function poksrcl()
   local e = {event.pull(1)}
   if e[1] == "key_down" then
     if e[4] == 29 then
