@@ -289,12 +289,20 @@ local function drawlist()
     end
     yPos = yPos + 001
   end
+  if e[1] == "key_down" then
+    if e[4] == 29 then
+      run = false
+    elseif e[4] == 200 then
+      scroll("+")
+    elseif e[4] == 208 then
+      scroll("-")
+    end
    if choice then
       drawlist()
       gpu.set(10,1,"choice = "..choice.."  ")
       square(1,e[4],77,1,0xDEDE6C)
       gpu.setForeground(0x3366CC)
-      buffer.drawText(4,e[4],0xFFFFFF,items.shop[choice].text)
+      buffer.drawText(39,e[4],0xFFFFFF,items.shop[choice].text)
       gpu.set(54,e[4],items.shop[choice].price)
       if tonumber(items.shop[choice].available) > 0 then
         gpu.set(64,e[4],items.shop[choice].available)
