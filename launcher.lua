@@ -1,4 +1,4 @@
-local casino = require("pril")--1:02
+local casino = require("pril")--1:25
 local event = require("event")
 local shell = require("shell")
 local unicode = require("unicode")
@@ -67,7 +67,7 @@ local function square(x,y,width,height,color)
   if color and gpu.getBackground() ~= color then
     gpu.setBackground(color)
   end
-  gpu.fill(x,y,width,height," ")
+  gpufill(x,y,width,height," ")
 end
 
 
@@ -285,6 +285,7 @@ local function drawlist()
     end
     yPos = yPos + 001
   end
+ square(1,e[4],77,1,0xDEDE6C)
 end
 
  
