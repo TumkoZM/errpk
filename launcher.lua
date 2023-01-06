@@ -405,21 +405,6 @@ local function drawStatic()
     buffer.drawText(36, 4,0xFFFFFF , 'Магазин')   
     drawlist()
     poksrcl()
-    
-    if choice then
-      drawlist()
-      gpu.set(10,1,"choice = "..choice.."  ")
-      square(1,e[4],77,1,0xDEDE6C)
-      gpu.setForeground(0x3366CC)
-      gpu.set(4,e[4],items.shop[choice].text)
-      gpu.set(54,e[4],items.shop[choice].price)
-      if tonumber(items.shop[choice].available) > 0 then
-        gpu.set(64,e[4],items.shop[choice].available)
-      else
-        gpu.set(64,e[4],"-")
-      end
-    end
-  end
     os.sleep(0.001)
     if (state.devMode) then
         writeCenter(158, 1, "{dev}", 0xE700FF)
