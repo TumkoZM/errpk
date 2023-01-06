@@ -67,7 +67,7 @@ local function square(x,y,width,height,color)
   if color and gpu.getBackground() ~= color then
     gpu.setBackground(color)
   end
-  gpufill(x,y,width,height," ")
+  gpu.fill(x,y,width,height," ")
 end
 
 
