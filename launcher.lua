@@ -264,12 +264,7 @@ for i = 1,#items.shop do
   end
 end
  
-local function square(x,y,width,height,color)
-  if color and gpu.getBackground() ~= color then
-    gpu.setBackground(color)
-  end
-  gpu.fill(x,y,width,height," ")
-end
+
  
 local function drawlist()
   pos_str = {}
@@ -281,6 +276,7 @@ local function drawlist()
       table.insert(pos_str,{yPos,ind[i]})
       buffer.drawText(5,yPos,0xFFFFFF,items.shop[ind[i]].text)
       buffer.drawText(65,yPos,0xFFFFFF,items.shop[ind[i]].price)
+      square(1,e[4],77,1,0xDEDE6C)
       if tonumber(items.shop[ind[i]].available) > 0 then
         buffer.drawText(45,yPos,0xFFFFF,items.shop[ind[i]].available)
       else
@@ -289,30 +285,17 @@ local function drawlist()
     end
     yPos = yPos + 001
   end
-  if e[1] == "key_down" then
-    if e[4] == 29 then
-      run = false
-    elseif e[4] == 200 then
-      scroll("+")
-    elseif e[4] == 208 then
-      scroll("-")
-    end
-   if choice then
-      drawlist()
+if choice then
+      
       gpu.set(10,1,"choice = "..choice.."  ")
       square(1,e[4],77,1,0xDEDE6C)
-      gpu.setForeground(0x3366CC)
-      buffer.drawText(39,e[4],0xFFFFFF,items.shop[choice].text)
-      gpu.set(54,e[4],items.shop[choice].price)
-      if tonumber(items.shop[choice].available) > 0 then
-        gpu.set(64,e[4],items.shop[choice].available)
-      else
-        gpu.set(64,e[4],"-")
       end
-    end
 end
  
-
+local function scr()
+local yPos = 4
+    square(1,e[4],77,1,0xDEDE6C)
+end 
  
 
 
@@ -584,6 +567,7 @@ initLauncher()
 buffer.flush()
 drawStatic()
 drawDynamic()
+
 if settings.PAYMENT_METHOD == 'PIM' then event.listen('player_off', onPimPlayerOff) end
 
 while true do
