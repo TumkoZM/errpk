@@ -665,7 +665,6 @@ while true do
     end
     if choice then
       drawlist()
-    
       square(5,e[4],66,1,0xDEDE6C)
       gpu.setForeground(0x3366CC)
       gpu.set(5,e[4],items.shop[choice].text)
