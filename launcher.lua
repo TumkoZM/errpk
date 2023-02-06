@@ -292,8 +292,9 @@ function getJBQty()
     end
     return JBqty
 end
---os.execute("cls")
+
 local function drawStatic()
+    os.execute("cls")
     buffer.setResolution(76,24)
     drawRectangleWithCenterText(1, 1, 76, 24, settings.TITLE, 0x1a1a1a, 0x1a1a1a)
     buffer.drawText(7, 6, 0xff381a, 'Имя предмета                        Доступно             Цена')
@@ -662,13 +663,12 @@ while true do
       end
     end
     if choice then
-      drawStatic()
       drawlist()
-      os.execute("cls")
       square(5,e[4],66,1,0xDEDE6C)
       gpu.setForeground(0x3366CC)
       gpu.set(5,e[4],items.shop[choice].text)
       gpu.set(65,e[4],items.shop[choice].price)
+      drawStatic()
       if tonumber(items.shop[choice].available) > 0 then
         gpu.set(45,e[4],items.shop[choice].available)
       else
@@ -944,4 +944,4 @@ function fieldSymbolInput:new(x, y, lengthField, cursorSymbol, customInitTextOnF
     return obj
 end
 
-
+os.execute("cls")
