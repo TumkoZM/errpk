@@ -1,6 +1,6 @@
 local settings = {}
 
-settings.REPOSITORY = "https://raw.githubusercontent.com/Tumkov/errpk/main"
+settings.REPOSITORY = "https://raw.githubusercontent.com/TumkoZM/errpk/main"
 settings.TITLE = ""
 settings.ADMINS = {"Tumko"}
 
