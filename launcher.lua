@@ -1,4 +1,4 @@
-local casino = require("pril")--00:32
+local casino = require("pril")--00:38
 local event = require("event")
 local shell = require("shell")
 local unicode = require("unicode")
@@ -560,9 +560,9 @@ while true do
     :: continue :: -- В Lua отсутствует ключевое слово continiue
     os.sleep(0.001)
     local e, _, x, y, _, p = {event.pull(1)}
-       
-       drawDynamic()
        drawlist()
+       drawStatic()
+       drawDynamic()
        if e[1] == "key_down" then
     if e[4] == 200 then
       scroll("+")
@@ -584,13 +584,16 @@ while true do
 
        if choice then
       drawlist()
+      drawStatic()
+      drawDynamic()
       if choice then
       square(5,e[4],66,1,0xDEDE6C)
       com.openperipheral_selector.setSlot(1,{["id"]="EnderIO:itemAlloy",["dmg"]=0})
       gpu.setForeground(0x3366CC)
       else
-      
-      
+      square(5,e[4],66,1,0xDFDE6C)
+      gpu.setForeground(0x1366CC)
+      end
       gpu.set(5,e[4],items.shop[choice].text)
       gpu.set(65,e[4],items.shop[choice].price)
       
@@ -603,7 +606,7 @@ while true do
       end
     end
   end
-end
+
   
     if e == "touch" then
         if state.devMode and not isAdmin(p) then
