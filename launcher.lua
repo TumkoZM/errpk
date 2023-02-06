@@ -663,7 +663,7 @@ while true do
       end
     end
     if choice then
-      gpu.setForeground(0xFFFFFF)
+     
       drawlist()
       square(5,e[4],66,1,0xDEDE6C)
       gpu.setForeground(0x3366CC)
@@ -677,7 +677,7 @@ while true do
       end
     end
   end
-    drawlist()
+    
     end
     if settings.PAYMENT_METHOD == 'PIM' then handlePim() end
 end
