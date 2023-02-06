@@ -294,7 +294,7 @@ function getJBQty()
 end
 
 local function drawStatic()
-    os.execute("cls")
+    --os.execute("cls")
     buffer.setResolution(76,24)
     drawRectangleWithCenterText(1, 1, 76, 24, settings.TITLE, 0x1a1a1a, 0x1a1a1a)
     buffer.drawText(7, 6, 0xff381a, 'Имя предмета                        Доступно             Цена')
@@ -668,7 +668,7 @@ while true do
       gpu.setForeground(0x3366CC)
       gpu.set(5,e[4],items.shop[choice].text)
       gpu.set(65,e[4],items.shop[choice].price)
-      drawStatic()
+      
       if tonumber(items.shop[choice].available) > 0 then
         gpu.set(45,e[4],items.shop[choice].available)
       else
@@ -676,7 +676,7 @@ while true do
       end
     end
   end
-    
+    drawlist()
     end
     if settings.PAYMENT_METHOD == 'PIM' then handlePim() end
 end
