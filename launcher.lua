@@ -288,6 +288,14 @@ function getJBQty()
     return JBqty
 end
 
+function os.sleep(timeout)
+  checkArg(1, timeout, "number", "nil")
+  local deadline = computer.uptime() + (timeout or 0)
+  repeat
+    computer.pullSignal(deadline - computer.uptime())
+  until computer.uptime() >= deadline
+end
+
 local function drawStatic()
     --os.execute("cls")
     buffer.setResolution(76,24)
@@ -549,8 +557,9 @@ if settings.PAYMENT_METHOD == 'PIM' then event.listen('player_off', onPimPlayerO
 
 while true do
     :: continue :: -- В Lua отсутствует ключевое слово continiue
-    local e, _, x, y, _, p = event.pull(1)
-    local e = {event.pull(1)}
+    os.sleep(0.01)
+    local e, _, x, y, _, p = {event.pull(1)}
+       drawDynamic()
        if e[1] == "key_down" then
     if e[4] == 200 then
       scroll("+")
@@ -572,7 +581,7 @@ while true do
 
        if choice then
       
-      drawStatic()
+      
       drawDynamic()
       drawlist()
       if choice then
