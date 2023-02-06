@@ -659,8 +659,7 @@ while true do
     end
     if choice then
       drawlist()
-      os.execute("cls")
-      drawDynamic()
+      os.execute("gpu")
       drawlist()
       square(5,e[4],66,1,0xDEDE6C)
       gpu.setForeground(0x3366CC)
@@ -669,10 +668,10 @@ while true do
       
       if tonumber(items.shop[choice].available) > 0 then
         gpu.set(45,e[4],items.shop[choice].available)
-        drawDynamic()
+        
       else
         gpu.set(45,e[4],"-")
-        drawDynamic()
+        
       end
     end
   end
