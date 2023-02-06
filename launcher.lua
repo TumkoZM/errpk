@@ -1,4 +1,4 @@
-local casino = require("pril")--21:15
+local casino = require("pril")--21:25
 local event = require("event")
 local shell = require("shell")
 local unicode = require("unicode")
@@ -569,6 +569,28 @@ while true do
         break
       end
     end
+    if choice then
+      
+      drawlist()
+      if choice then
+      square(5,e[4],66,1,0xDEDE6C)
+      gpu.setForeground(0x3366CC)
+      else
+      square(5,e[4],66,1,0xFFFFFF)
+      gpu.setForeground(0x1366CC)
+      end
+      gpu.set(5,e[4],items.shop[choice].text)
+      gpu.set(65,e[4],items.shop[choice].price)
+      
+      if tonumber(items.shop[choice].available) > 0 then
+        gpu.set(45,e[4],items.shop[choice].available)
+        
+      else
+        gpu.set(45,e[4],"-")
+        
+      end
+    end
+  end
     if e == "touch" then
         if state.devMode and not isAdmin(p) then
             goto continue
@@ -663,28 +685,7 @@ while true do
             drawDynamic()
         end
        
-    if choice then
-      
-      drawlist()
-      if choice then
-      square(5,e[4],66,1,0xDEDE6C)
-      gpu.setForeground(0x3366CC)
-      else
-      square(5,e[4],66,1,0xFFFFFF)
-      gpu.setForeground(0x1366CC)
-      end
-      gpu.set(5,e[4],items.shop[choice].text)
-      gpu.set(65,e[4],items.shop[choice].price)
-      
-      if tonumber(items.shop[choice].available) > 0 then
-        gpu.set(45,e[4],items.shop[choice].available)
-        
-      else
-        gpu.set(45,e[4],"-")
-        
-      end
-    end
-  end
+    
   
     
     end
