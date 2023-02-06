@@ -1,4 +1,4 @@
-local casino = require("pril")--18:48
+local casino = require("pril")--19:48
 local event = require("event")
 local shell = require("shell")
 local unicode = require("unicode")
@@ -658,11 +658,9 @@ while true do
       end
     end
     if choice then
-     os.execute("cls")
-      initLauncher()
-buffer.flush()
-drawStatic()
-drawDynamic()
+      drawlist()
+      os.execute("cls")
+      drawDynamic()
       drawlist()
       square(5,e[4],66,1,0xDEDE6C)
       gpu.setForeground(0x3366CC)
@@ -671,8 +669,10 @@ drawDynamic()
       
       if tonumber(items.shop[choice].available) > 0 then
         gpu.set(45,e[4],items.shop[choice].available)
+        drawDynamic()
       else
         gpu.set(45,e[4],"-")
+        drawDynamic()
       end
     end
   end
