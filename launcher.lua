@@ -1,4 +1,4 @@
-local casino = require("pril")--22:30
+local casino = require("pril")--23:20
 local event = require("event")
 local shell = require("shell")
 local unicode = require("unicode")
@@ -487,7 +487,7 @@ local function handlePim()
                     buffer.drawText(31, 15, 0x46c8e3, '⣇⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣸')
                     buffer.drawText(28, 17, 0xFFFFFF, 'Валюта: Железные блоки')
                     buffer.drawText(34, 24, 0x000000, 'By Tumko')
-                    computer.addUser(casino.container.openperipheral_selector.setSlot(1,{377,0}))
+                    component.openperipheral_selector.setSlot(1,{["id"]="minecraft:blaze_powder",["dmg"]=0})
                     buffer.drawChanges()
                     
                     os.sleep(0.001)
@@ -516,8 +516,9 @@ local function handlePim()
                     buffer.drawText(28, 17, 0xFFFFFF, 'Валюта: Железные блоки')
                     buffer.drawText(33, 23, 0xFFFFFF, 'Авторизация')
                     buffer.drawText(34, 24, 0x000000, 'By Tumko')
+                    component.openperipheral_selector.setSlot(1,{["id"]="minecraft:blaze_powder",["dmg"]=0})
                     buffer.drawChanges()
-                    computer.addUser(casino.container.openperipheral_selector.setSlot(1,{377,0}))
+            
         os.sleep(0.001)
         drawStatic()
         drawDynamic()
