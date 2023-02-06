@@ -658,7 +658,11 @@ while true do
       end
     end
     if choice then
-     
+     os.execute("cls")
+      initLauncher()
+buffer.flush()
+drawStatic()
+drawDynamic()
       drawlist()
       square(5,e[4],66,1,0xDEDE6C)
       gpu.setForeground(0x3366CC)
