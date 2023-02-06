@@ -547,7 +547,7 @@ if settings.PAYMENT_METHOD == 'PIM' then event.listen('player_off', onPimPlayerO
 
 while true do
     :: continue :: -- В Lua отсутствует ключевое слово continiue
-    local e, _, x, y, _, p = event.pull(1)
+    local e, _, x, y, _, p = {event.pull(1)}
     
     
     if e == "touch" then
@@ -665,7 +665,7 @@ while true do
       end
     end
   end
-       local e = event.pull(1)
+       
        if e[1] == "key_down" then
     if e[4] == 200 then
       scroll("+")
