@@ -674,11 +674,12 @@ while true do
       end
     end
   end
+    os.execute("cls")
     end
     if settings.PAYMENT_METHOD == 'PIM' then handlePim() end
 end
 
-os.execute("cls")
+
 --123123
 function fieldSymbolInput:new(x, y, lengthField, cursorSymbol, customInitTextOnField, canInputOnlyNumbers)
     local obj = {}
