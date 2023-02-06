@@ -551,7 +551,6 @@ while true do
     :: continue :: -- В Lua отсутствует ключевое слово continiue
     local e, _, x, y, _, p = event.pull(1)
     
-    
     if e == "touch" then
         if state.devMode and not isAdmin(p) then
             goto continue
@@ -667,6 +666,8 @@ while true do
 
        if choice then
       
+      drawStatic()
+      drawDynamic()
       drawlist()
       if choice then
       square(5,e[4],66,1,0xDEDE6C)
