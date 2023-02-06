@@ -160,43 +160,6 @@ local function drawRectangleWithCenterText(x, y, width, height, text, bgColor, f
     writeCenter(width / 2 + x, height / 2 + y, text, fgColor)
 end
 
-local function drawCurrency(x, y, currency, current)
-    buffer.drawRectangle(x, y, 46, 3, --[[current and 0xA890AA or--]] 0xE3E3E3, 0, " ")
-    buffer.drawText(x + 8, y    , 0, currency.name)
-    buffer.drawText(x + 8, y + 1, 0, "Максимальная ставка: " .. (currency.max or "-"))
-    buffer.drawText(x + 8, y + 2, 0, "У казино: " .. casino.getCurrencyInStorage(currency) .. " шт.")
-
-    local color = currency.color or 0xE3E3E3
-    local darkColor = colorlib.transition(color, 0, 0.1)
-    if currency.model == 'INGOT' then
-        buffer.drawSemiPixelLine(x, y * 2 + 1, x + 2, y * 2 + 1, darkColor)
-        buffer.drawSemiPixelLine(x + 3, y * 2, x + 5, y * 2, darkColor)
-        buffer.drawSemiPixelLine(x, y * 2 + 2, x + 2, y * 2 + 2, color)
-        buffer.drawSemiPixelLine(x + 3, y * 2 + 1, x + 5, y * 2 + 1, color)
-        buffer.drawSemiPixelLine(x, y * 2 + 3, x + 2, y * 2 + 3, darkColor)
-        buffer.drawSemiPixelLine(x + 3, y * 2 + 2, x + 5, y * 2 + 2, darkColor)
-    elseif currency.model == 'DUST' then
-        buffer.drawSemiPixelRectangle(x + 2, y * 2 + 1, 3, 2, color)
-        buffer.drawSemiPixelRectangle(x + 1, y * 2 + 3, 5, 1, color)
-        buffer.drawSemiPixelLine(x, y * 2 + 3, x + 3, y * 2, darkColor)
-        buffer.drawSemiPixelLine(x + 3, y * 2, x + 6, y * 2 + 3, darkColor)
-        buffer.drawSemiPixelLine(x + 1, y * 2 + 4, x + 5, y * 2 + 4, darkColor)
-    elseif currency.model == 'BLOCK' then
-        buffer.drawSemiPixelRectangle(x, y * 2 - 1, 6, 6, darkColor)
-        buffer.drawSemiPixelRectangle(x + 1, y * 2, 4, 4, color)
-    end
-
-end
-local function drawBigText(x, y, text)
-    if not text then
-        return
-    end
-    local lines = casino.splitString(text, "\n")
-    for i = 0, #lines - 1 do
-        buffer.drawText(x, y + i, 0x000000, lines[i + 1])
-    end
-end
-
 
 if not fs.exists(patch_items) then
   local f = io.open(patch_items,'w')
@@ -681,9 +644,3 @@ while true do
     end
     if settings.PAYMENT_METHOD == 'PIM' then handlePim() end
 end
-
-
---123123
-
-
-os.execute("cls")
