@@ -563,6 +563,26 @@ while true do
     local e, _, x, y, _, p = {event.pull(1)}
     
   drawlist()
+  drawStatic()
+       drawDynamic()
+       if e[1] == "key_down" then
+    if e[4] == 200 then
+      scroll("+")
+    elseif e[4] == 208 then
+      scroll("-")
+    end
+  elseif e[1] == "scroll" then
+    scroll(e[5])
+  elseif e[1] == "touch" then
+    gpu.setBackground(0x000000)
+    gpu.setForeground(0xFFFFFF)
+    choice = false
+    for i = 1,#pos_str do
+      if e[3] <= 77 and e[4] == pos_str[i][1] then
+        choice = pos_str[i][2]
+        break
+      end
+    end
        
 
        if choice then
