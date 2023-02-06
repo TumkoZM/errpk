@@ -658,11 +658,14 @@ while true do
       end
     end
     if choice then
+      square(5,e[4],66,1,0x1a1a1a)
+      gpu.setForeground(0xFFFFFF)
       drawlist()
       os.execute("gpu")
       drawlist()
       square(5,e[4],66,1,0xDEDE6C)
       gpu.setForeground(0x3366CC)
+
       gpu.set(5,e[4],items.shop[choice].text)
       gpu.set(65,e[4],items.shop[choice].price)
       
