@@ -1,4 +1,4 @@
-local REPOSITOTY = "https://raw.githubusercontent.com/Tumkov/bleb/main"
+local REPOSITOTY = "https://raw.githubusercontent.com/errpk/bleb/main"
 
 local shell = require("shell")
 shell.execute("wget -f " .. REPOSITOTY .. "/launcher.lua /home/start.lua")
