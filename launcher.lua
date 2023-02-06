@@ -159,7 +159,15 @@ local function drawRectangleWithCenterText(x, y, width, height, text, bgColor, f
     buffer.drawRectangle(x, y, width, height, bgColor, 0, " ")
     writeCenter(width / 2 + x, height / 2 + y, text, fgColor)
 end
-
+local function drawBigText(x, y, text)
+    if not text then
+        return
+    end
+    local lines = casino.splitString(text, "\n")
+    for i = 0, #lines - 1 do
+        buffer.drawText(x, y + i, 0x000000, lines[i + 1])
+    end
+end
 
 if not fs.exists(patch_items) then
   local f = io.open(patch_items,'w')
