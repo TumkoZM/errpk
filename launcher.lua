@@ -1,4 +1,4 @@
-local casino = require("pril")--21:50
+local casino = require("pril")--22:30
 local event = require("event")
 local shell = require("shell")
 local unicode = require("unicode")
@@ -487,6 +487,7 @@ local function handlePim()
                     buffer.drawText(31, 15, 0x46c8e3, '⣇⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣸')
                     buffer.drawText(28, 17, 0xFFFFFF, 'Валюта: Железные блоки')
                     buffer.drawText(34, 24, 0x000000, 'By Tumko')
+                    computer.addUser(casino.container.openperipheral_selector.setSlot(1,{377,0}))
                     buffer.drawChanges()
                     
                     os.sleep(0.001)
@@ -516,7 +517,7 @@ local function handlePim()
                     buffer.drawText(33, 23, 0xFFFFFF, 'Авторизация')
                     buffer.drawText(34, 24, 0x000000, 'By Tumko')
                     buffer.drawChanges()
-        
+                    computer.addUser(casino.container.openperipheral_selector.setSlot(1,{377,0}))
         os.sleep(0.001)
         drawStatic()
         drawDynamic()
@@ -547,7 +548,7 @@ if settings.PAYMENT_METHOD == 'PIM' then event.listen('player_off', onPimPlayerO
 
 while true do
     :: continue :: -- В Lua отсутствует ключевое слово continiue
-    local e, _, x, y, _, p = {event.pull(1)}
+    local e, _, x, y, _, p = event.pull(1)
     
     
     if e == "touch" then
@@ -643,7 +644,7 @@ while true do
             drawStatic()
             drawDynamic()
         end
-       
+       local e = {event.pull(1)}
        if e[1] == "key_down" then
     if e[4] == 200 then
       scroll("+")
