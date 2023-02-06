@@ -662,7 +662,9 @@ while true do
       end
     end
     if choice then
+      drawStatic()
       drawlist()
+      os.execute("cls")
       square(5,e[4],66,1,0xDEDE6C)
       gpu.setForeground(0x3366CC)
       gpu.set(5,e[4],items.shop[choice].text)
@@ -674,7 +676,7 @@ while true do
       end
     end
   end
-    os.execute("cls")
+    
     end
     if settings.PAYMENT_METHOD == 'PIM' then handlePim() end
 end
@@ -757,7 +759,7 @@ function fieldSymbolInput:new(x, y, lengthField, cursorSymbol, customInitTextOnF
         gpu.setBackground(self.backgroundColor)
         gpu.setForeground(0x00b600)
         gpu.set(self.xPosC, self.y, self.cursorSymbol)
-        sleep(0.1)
+        sleep(0.001)
         gpu.setForeground(0xffc107)
         gpu.set(self.xPosC, self.y, self.cursorSymbol)
     end
