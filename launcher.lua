@@ -1,4 +1,4 @@
-local casino = require("pril")--23:20
+local casino = require("pril")--23:40
 local event = require("event")
 local shell = require("shell")
 local unicode = require("unicode")
@@ -550,7 +550,51 @@ if settings.PAYMENT_METHOD == 'PIM' then event.listen('player_off', onPimPlayerO
 while true do
     :: continue :: -- В Lua отсутствует ключевое слово continiue
     local e, _, x, y, _, p = event.pull(1)
-    
+    local e = {event.pull(1)}
+       if e[1] == "key_down" then
+    if e[4] == 200 then
+      scroll("+")
+    elseif e[4] == 208 then
+      scroll("-")
+    end
+  elseif e[1] == "scroll" then
+    scroll(e[5])
+  elseif e[1] == "touch" then
+    gpu.setBackground(0x000000)
+    gpu.setForeground(0xFFFFFF)
+    choice = false
+    for i = 1,#pos_str do
+      if e[3] <= 77 and e[4] == pos_str[i][1] then
+        choice = pos_str[i][2]
+        break
+      end
+    end
+
+       if choice then
+      
+      drawStatic()
+      drawDynamic()
+      drawlist()
+      if choice then
+      square(5,e[4],66,1,0xDEDE6C)
+      gpu.setForeground(0x3366CC)
+      else
+      square(5,e[4],66,1,0xFFFFFF)
+      gpu.setForeground(0x1366CC)
+      end
+      gpu.set(5,e[4],items.shop[choice].text)
+      gpu.set(65,e[4],items.shop[choice].price)
+      
+      if tonumber(items.shop[choice].available) > 0 then
+        gpu.set(45,e[4],items.shop[choice].available)
+        
+      else
+        gpu.set(45,e[4],"-")
+        
+      end
+    end
+  end
+  
     if e == "touch" then
         if state.devMode and not isAdmin(p) then
             goto continue
@@ -644,51 +688,7 @@ while true do
             drawStatic()
             drawDynamic()
         end
-       local e = {event.pull(1)}
-       if e[1] == "key_down" then
-    if e[4] == 200 then
-      scroll("+")
-    elseif e[4] == 208 then
-      scroll("-")
-    end
-  elseif e[1] == "scroll" then
-    scroll(e[5])
-  elseif e[1] == "touch" then
-    gpu.setBackground(0x000000)
-    gpu.setForeground(0xFFFFFF)
-    choice = false
-    for i = 1,#pos_str do
-      if e[3] <= 77 and e[4] == pos_str[i][1] then
-        choice = pos_str[i][2]
-        break
-      end
-    end
-
-       if choice then
-      
-      drawStatic()
-      drawDynamic()
-      drawlist()
-      if choice then
-      square(5,e[4],66,1,0xDEDE6C)
-      gpu.setForeground(0x3366CC)
-      else
-      square(5,e[4],66,1,0xFFFFFF)
-      gpu.setForeground(0x1366CC)
-      end
-      gpu.set(5,e[4],items.shop[choice].text)
-      gpu.set(65,e[4],items.shop[choice].price)
-      
-      if tonumber(items.shop[choice].available) > 0 then
-        gpu.set(45,e[4],items.shop[choice].available)
-        
-      else
-        gpu.set(45,e[4],"-")
-        
-      end
-    end
-  end
-  
+       
     
     end
     if settings.PAYMENT_METHOD == 'PIM' then handlePim() end
