@@ -548,6 +548,27 @@ if settings.PAYMENT_METHOD == 'PIM' then event.listen('player_off', onPimPlayerO
 while true do
     :: continue :: -- В Lua отсутствует ключевое слово continiue
     local e, _, x, y, _, p = event.pull(1)
+    local e = {event.pull(1)}
+         drawlist()
+         os.sleep(0.005)
+       if e[1] == "key_down" then
+    if e[4] == 200 then
+      scroll("+")
+    elseif e[4] == 208 then
+      scroll("-")
+    end
+  elseif e[1] == "scroll" then
+    scroll(e[5])
+  elseif e[1] == "touch" then
+    gpu.setBackground(0x000000)
+    gpu.setForeground(0xFFFFFF)
+    choice = false
+    for i = 1,#pos_str do
+      if e[3] <= 77 and e[4] == pos_str[i][1] then
+        choice = pos_str[i][2]
+        break
+      end
+    end
     if e == "touch" then
         if state.devMode and not isAdmin(p) then
             goto continue
@@ -599,27 +620,7 @@ while true do
                 end
             end
         end
-        local e = {event.pull(1)}
-         drawlist()
-         os.sleep(0.005)
-       if e[1] == "key_down" then
-    if e[4] == 200 then
-      scroll("+")
-    elseif e[4] == 208 then
-      scroll("-")
-    end
-  elseif e[1] == "scroll" then
-    scroll(e[5])
-  elseif e[1] == "touch" then
-    gpu.setBackground(0x000000)
-    gpu.setForeground(0xFFFFFF)
-    choice = false
-    for i = 1,#pos_str do
-      if e[3] <= 77 and e[4] == pos_str[i][1] then
-        choice = pos_str[i][2]
-        break
-      end
-    end
+        
         -- Lib buttons
         if state.devMode and state.selection == 0 and y >= 7 and y % 2 == 1 then
             local lib = libs[math.floor((y - 7) / 2) + 1]
@@ -664,8 +665,6 @@ while true do
        
     if choice then
       
-      drawlist()
-      drawStatic()
       drawlist()
       if choice then
       square(5,e[4],66,1,0xDEDE6C)
