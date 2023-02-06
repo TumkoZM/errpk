@@ -558,7 +558,7 @@ if settings.PAYMENT_METHOD == 'PIM' then event.listen('player_off', onPimPlayerO
 
 while true do
     :: continue :: -- В Lua отсутствует ключевое слово continiue
-    os.sleep(0.01)
+    os.sleep(0.001)
     local e, _, x, y, _, p = {event.pull(1)}
        drawStatic()
        drawDynamic()
