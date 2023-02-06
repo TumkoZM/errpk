@@ -1,4 +1,4 @@
-local casino = require("pril")--23:40
+local casino = require("pril")--00:02
 local event = require("event")
 local shell = require("shell")
 local unicode = require("unicode")
@@ -555,11 +555,14 @@ drawStatic()
 drawDynamic()
 if settings.PAYMENT_METHOD == 'PIM' then event.listen('player_off', onPimPlayerOff) end
 
+
 while true do
     :: continue :: -- В Lua отсутствует ключевое слово continiue
     os.sleep(0.01)
     local e, _, x, y, _, p = {event.pull(1)}
+       drawStatic()
        drawDynamic()
+       drawlist()
        if e[1] == "key_down" then
     if e[4] == 200 then
       scroll("+")
@@ -580,8 +583,7 @@ while true do
     end
 
        if choice then
-      
-      
+      drawStatic ()
       drawDynamic()
       drawlist()
       if choice then
