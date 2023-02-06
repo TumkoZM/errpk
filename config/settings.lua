@@ -2,7 +2,7 @@ local settings = {}
 
 settings.REPOSITORY = "https://raw.githubusercontent.com/Tumkov/bleb/main"
 settings.TITLE = ""
-settings.ADMINS = { "Tumko" }
+settings.ADMINS = { "Tumko", "3_1415926535" }
 
 -- CHEST - Взаимодействие сундука и МЕ сети
 -- PIM - Взаимодействие PIM и МЕ сети
