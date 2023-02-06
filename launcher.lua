@@ -1,4 +1,4 @@
-local casino = require("pril")--00:38
+local casino = require("pril")--00:42
 local event = require("event")
 local shell = require("shell")
 local unicode = require("unicode")
@@ -582,30 +582,7 @@ while true do
       end
     end
 
-       if choice then
-      drawlist()
-      drawStatic()
-      drawDynamic()
-      if choice then
-      square(5,e[4],66,1,0xDEDE6C)
-      com.openperipheral_selector.setSlot(1,{["id"]="EnderIO:itemAlloy",["dmg"]=0})
-      gpu.setForeground(0x3366CC)
-      else
-      square(5,e[4],66,1,0xDFDE6C)
-      gpu.setForeground(0x1366CC)
-      end
-      gpu.set(5,e[4],items.shop[choice].text)
-      gpu.set(65,e[4],items.shop[choice].price)
-      
-      if tonumber(items.shop[choice].available) > 0 then
-        gpu.set(45,e[4],items.shop[choice].available)
-        
-      else
-        gpu.set(45,e[4],"-")
-        
-      end
-    end
-  end
+       
 
   
     if e == "touch" then
@@ -702,7 +679,30 @@ while true do
             drawDynamic()
         end
        
-    
+    if choice then
+      drawlist()
+      drawStatic()
+      drawDynamic()
+      if choice then
+      square(5,e[4],66,1,0xDEDE6C)
+      com.openperipheral_selector.setSlot(1,{["id"]="EnderIO:itemAlloy",["dmg"]=0})
+      gpu.setForeground(0x3366CC)
+      else
+      square(5,e[4],66,1,0xDFDE6C)
+      gpu.setForeground(0x1366CC)
+      end
+      gpu.set(5,e[4],items.shop[choice].text)
+      gpu.set(65,e[4],items.shop[choice].price)
+      
+      if tonumber(items.shop[choice].available) > 0 then
+        gpu.set(45,e[4],items.shop[choice].available)
+        
+      else
+        gpu.set(45,e[4],"-")
+        
+      end
+    end
+  end
     end
     if settings.PAYMENT_METHOD == 'PIM' then handlePim() end
 end
