@@ -663,10 +663,10 @@ while true do
       drawStatic()
       drawlist()
       if choice then
-      square(5,e[4],66,1,0xFFFFFF)
+      square(5,e[4],66,1,0xDEDE6C)
       gpu.setForeground(0x3366CC)
       else
-      square(5,e[4],66,1,0xDEDE6C)
+      square(5,e[4],66,1,0xFFFFFF)
       gpu.setForeground(0x1366CC)
       end
       gpu.set(5,e[4],items.shop[choice].text)
