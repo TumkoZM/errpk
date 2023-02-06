@@ -23,7 +23,6 @@
     { text = "Ядро виверны", price = "220", label = "Wyvern Core" },
     { text = "Улучшенная переносная ячейка", price = "25", label = "item.advancedPortableCell.name" },
     { text = "Гибридная переносная ячейка", price = "94", label = "item.hybridPortableCell.name" },
-    { text = "Совершенная переносная ячейка", price = "351", label = "item.ultimatePortableCell.name" },
 { text = "Совершенная переносная ячейка", price = "351", label = "item.ultimatePortableCell.name" },
 }
 }
