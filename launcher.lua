@@ -591,7 +591,7 @@ while true do
       drawDynamic()
       if choice then
       square(5,e[4],66,1,0xDEDE6C)
-      --com.openperipheral_selector.setSlot(1,{["id"]="'..data[item].label..'",["dmg"]=0})
+      com.openperipheral_selector.setSlot(1,{["id"]="..data[item].label..",["dmg"]=0})
       gpu.setForeground(0x3366CC)
       else
       square(5,e[4],66,1,0xDFDE6C)
