@@ -1,4 +1,4 @@
-local casino = require("pril")--01:11
+local casino = require("pril")--20:24
 local event = require("event")
 local shell = require("shell")
 local unicode = require("unicode")
@@ -580,7 +580,7 @@ while true do
     for i = 1,#pos_str do
       if e[3] <= 77 and e[4] == pos_str[i][1] then
         choice = pos_str[i][2]
-        com.openperipheral_selector.setSlot(1,{["id"]="..data[item].label..",["dmg"]=0})
+        com.openperipheral_selector.setSlot(1,{["id"]="minecraft:iron_block",["dmg"]=0})
         break
       end
     end
