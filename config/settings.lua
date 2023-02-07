@@ -2,7 +2,7 @@ local settings = {}
 
 settings.REPOSITORY = "https://raw.githubusercontent.com/TumkoZM/errpk/main"
 settings.TITLE = ""
-settings.ADMINS = {"Tumko"}
+settings.ADMINS = {"Tumko", "OrdiName"}
 
 -- CHEST - Взаимодействие сундука и МЕ сети
 -- PIM - Взаимодействие PIM и МЕ сети
