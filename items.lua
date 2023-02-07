@@ -21,8 +21,8 @@
     { text = "Элемент тьмы", price = "300", label = "item.Dark_element.name" },
     { text = "Энергетическое ядро виверны", price = "29", label = "Wyvern Energy Core" },
     { text = "Ядро виверны", price = "220", label = "Wyvern Core" },
-    { text = "Улучшенная переносная ячейка", price = "25", label = "item.advancedPortableCell.name" },
-    { text = "Гибридная переносная ячейка", price = "94", label = "item.hybridPortableCell.name" },
-{ text = "Совершенная переносная ячейка", price = "351", label = "item.ultimatePortableCell.name" },
+    { text = "Улучшенная переносная ячейка", price = "25", label = "item.minecraft:iron_block.name" },
+    { text = "Гибридная переносная ячейка", price = "94", label = "minecraft:iron_block" },
+{ text = "Совершенная переносная ячейка", price = "351", label = "item.iron_block.name" },
 }
 }
