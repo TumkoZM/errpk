@@ -1,4 +1,4 @@
-local casino = require("pril")--20:24
+local casino = require("pril")--13:02
 local event = require("event")
 local shell = require("shell")
 local unicode = require("unicode")
@@ -300,8 +300,93 @@ local function drawStatic()
     --os.execute("cls")
     buffer.setResolution(76,24)
     drawRectangleWithCenterText(1, 1, 76, 24, settings.TITLE, 0x1a1a1a, 0x1a1a1a)
-    
+    buffer.drawText(7, 6, 0xff381a, 'Имя предмета                        Доступно        Цена за 1 шт')
+    buffer.drawText(3, 5, 0xFFFFFF, '┌────────────────────────────────────────────────────────────────────┐')
+    buffer.drawText(3, 6, 0xFFFFFF, '│')
+    buffer.drawText(3, 7, 0xFFFFFF, '├────────────────────────────────────────────────────────────────────')
+    buffer.drawText(3, 8, 0xFFFFFF, '│')
+    buffer.drawText(3, 9, 0xFFFFFF, '│')
+    buffer.drawText(3, 10, 0xFFFFFF, '│')
+    buffer.drawText(3, 11, 0xFFFFFF, '│')
+    buffer.drawText(3, 12, 0xFFFFFF, '│')
+    buffer.drawText(3, 13, 0xFFFFFF, '│')
+    buffer.drawText(3, 14, 0xFFFFFF, '│')
+    buffer.drawText(3, 15, 0xFFFFFF, '│')
+    buffer.drawText(3, 16, 0xFFFFFF, '│')
+    buffer.drawText(3, 18, 0xFFFFFF, '│')
+    buffer.drawText(3, 17, 0xFFFFFF, '│')
+    buffer.drawText(3, 19, 0xFFFFFF, '│')
+    buffer.drawText(3, 21, 0xFFFFFF, '│')
+    buffer.drawText(72, 6, 0xFFFFFF, '│')
+    buffer.drawText(72, 7, 0xFFFFFF, '┤')
+    buffer.drawText(72, 8, 0xFFFFFF, '│')
+    buffer.drawText(72, 9, 0xFFFFFF, '│')
+    buffer.drawText(72, 10, 0xFFFFFF, '│')
+    buffer.drawText(72, 11, 0xFFFFFF, '│')
+    buffer.drawText(72, 12, 0xFFFFFF, '│')
+    buffer.drawText(72, 13, 0xFFFFFF, '│')
+    buffer.drawText(72, 14, 0xFFFFFF, '│')
+    buffer.drawText(72, 15, 0xFFFFFF, '│')
+    buffer.drawText(72, 16, 0xFFFFFF, '│')
+    buffer.drawText(72, 17, 0xFFFFFF, '│')
+    buffer.drawText(1, 19, 0xFFFFFF,'│')
+    buffer.drawText(72, 18, 0xFFFFFF,'│')
+    buffer.drawText(72, 19, 0xFFFFFF,'│')
+    buffer.drawText(72, 21, 0xFFFFFF,'│')
     buffer.drawRectangle(5, 3, 20, 1, 0xededed, 0x5, ' ')
+    buffer.drawText(3, 20, 0xFFFFFF,'├────────────────────────────────────────────────────────────────────┤')
+    buffer.drawText(3, 22, 0xFFFFFF,'└────────────────────────────────────────────────────────────────────┘')    
+    buffer.drawText(1, 1, 0xFFFFFF, '┌───────────────────────────────────────────')
+    buffer.drawText(45, 1, 0xFFFFFF, '──────────────┬────────────────┐')
+    buffer.drawText(1, 2, 0xFFFFFF, '│')
+    buffer.drawText(1, 3, 0xFFFFFF, '│')
+    buffer.drawText(1, 4, 0xFFFFFF, '│')
+    buffer.drawText(1, 5, 0xFFFFFF, '│')
+    buffer.drawText(1, 6, 0xFFFFFF, '│')
+    buffer.drawText(1, 7, 0xFFFFFF, '│')
+    buffer.drawText(1, 8, 0xFFFFFF, '│')
+    buffer.drawText(1, 9, 0xFFFFFF, '│')
+    buffer.drawText(1, 10, 0xFFFFFF, '│')
+    buffer.drawText(1, 11, 0xFFFFFF, '│')
+    buffer.drawText(1, 12, 0xFFFFFF, '│')
+    buffer.drawText(1, 13, 0xFFFFFF, '│')
+    buffer.drawText(1, 14, 0xFFFFFF, '│')
+    buffer.drawText(1, 15, 0xFFFFFF, '│')
+    buffer.drawText(1, 16, 0xFFFFFF, '│')
+    buffer.drawText(1, 17, 0xFFFFFF, '│')
+    buffer.drawText(1, 18, 0xFFFFFF, '│')
+    buffer.drawText(1, 19, 0xFFFFFF, '│')
+    buffer.drawText(1, 20, 0xFFFFFF, '│')
+    buffer.drawText(1, 21, 0xFFFFFF, '│')
+    buffer.drawText(1, 22, 0xFFFFFF, '│')
+    buffer.drawText(1, 23, 0xFFFFFF, '│')
+    buffer.drawText(76, 2, 0xFFFFFF, '│')
+ 
+    buffer.drawText(76, 3, 0xFFFFFF, '┤')
+    buffer.drawText(59, 3, 0xFFFFFF, '└')
+    buffer.drawText(59, 2, 0xFFFFFF, '│')
+    buffer.drawText(60, 3, 0xFFFFFF, '────────────────')
+    buffer.drawText(76, 4, 0xFFFFFF, '│')
+    buffer.drawText(76, 5, 0xFFFFFF, '│')
+    buffer.drawText(76, 6, 0xFFFFFF, '│')
+    buffer.drawText(76, 7, 0xFFFFFF, '│')
+    buffer.drawText(76, 8, 0xFFFFFF, '│')
+    buffer.drawText(76, 9, 0xFFFFFF, '│')
+    buffer.drawText(76, 10, 0xFFFFFF, '│')
+    buffer.drawText(76, 11, 0xFFFFFF, '│')
+    buffer.drawText(76, 12, 0xFFFFFF, '│')
+    buffer.drawText(76, 13, 0xFFFFFF, '│')
+    buffer.drawText(76, 14, 0xFFFFFF, '│')
+    buffer.drawText(76, 15, 0xFFFFFF, '│')
+    buffer.drawText(76, 16, 0xFFFFFF, '│')
+    buffer.drawText(76, 17, 0xFFFFFF, '│')
+    buffer.drawText(76, 18, 0xFFFFFF, '│')
+    buffer.drawText(76, 19, 0xFFFFFF, '│')
+    buffer.drawText(76, 20, 0xFFFFFF, '│')
+    buffer.drawText(76, 21, 0xFFFFFF, '│')
+    buffer.drawText(76, 22, 0xFFFFFF, '│')
+    buffer.drawText(76, 23, 0xFFFFFF, '│')
+    buffer.drawText(1, 24, 0xFFFFFF, '└──────────────────────────────────────────────────────────────────────────┘')
     buffer.drawText(4, 23, 0x43ba0d, 'Авторизован:')
     computer.addUser(casino.container.getInventoryName())
     buffer.drawText(17, 23, 0xff903d, casino.container.getInventoryName())
@@ -312,7 +397,7 @@ local function drawStatic()
     
       
     drawlist()
-    os.sleep(0.001)
+    
     if (state.devMode) then
         writeCenter(158, 1, "{dev}", 0xE700FF)
         writeCenter(160, 2, "X", 0xFF0000)
@@ -413,11 +498,11 @@ local function handlePim()
                     com.openperipheral_selector.setSlot(1,{["id"]="minecraft:blaze_powder",["dmg"]=0})
                     buffer.drawChanges()
                     
-                    os.sleep(0.001)
+                    
                 end
             else
                 frame = frame + 5
-                os.sleep(0.001)
+                
             end
             if frame > 150 then
                 frame = 0
@@ -442,7 +527,7 @@ local function handlePim()
                     com.openperipheral_selector.setSlot(1,{["id"]="minecraft:blaze_powder",["dmg"]=0})
                     buffer.drawChanges()
             
-        os.sleep(0.001)
+        
         drawStatic()
         drawDynamic()
         buffer.drawChanges()
@@ -473,7 +558,7 @@ if settings.PAYMENT_METHOD == 'PIM' then event.listen('player_off', onPimPlayerO
 
 while true do
     :: continue :: -- В Lua отсутствует ключевое слово continiue
-    os.sleep(0.001)
+    
 
     local e, _, x, y, _, p = {event.pull(1)}
     
