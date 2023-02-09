@@ -398,6 +398,7 @@ local function scroll(n)
   end
   drawlist()
   drawStatic()
+  com.openperipheral_selector.setSlot(1,{["id"]="minecraft:blaze_powder",["dmg"]=0})
 end
 
 local function drawLibSettings()
