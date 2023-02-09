@@ -550,7 +550,7 @@ local function square(x,y,width,height,color)
   end
   drawStatic()
   gpu.fill(x,y,width,height," ")
-  gpu.setBackground(0xDEDE6C)
+  
   
 end
 
