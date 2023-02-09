@@ -288,13 +288,7 @@ function getJBQty()
     return JBqty
 end
 
-function os.sleep(timeout)
-  checkArg(1, timeout, "number", "nil")
-  local deadline = computer.uptime() + (timeout or 0)
-  repeat
-    computer.pullSignal(deadline - computer.uptime())
-  until computer.uptime() >= deadline
-end
+
 
 local function drawStatic()
     --os.execute("cls")
