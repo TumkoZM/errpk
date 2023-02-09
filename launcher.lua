@@ -574,7 +574,6 @@ while true do
     for i = 1,#pos_str do
       if e[3] <= 77 and e[4] == pos_str[i][1] then
         choice = pos_str[i][2]
-        --com.openperipheral_selector.setSlot(1,{["id"]="minecraft:iron_block",["dmg"]=0})
         
         if com.isAvailable("openperipheral_selector") then
           local storedItem = interface.getItemsInNetwork({label=items.shop[choice].label})[1]
@@ -588,17 +587,10 @@ break
        
 
        if choice then
-      drawlist()
-    --  drawStatic()
-      drawDynamic()
-      if choice then
+      drawlist()      
       square(5,e[4],66,1,0xDEDE6C)
-      --com.openperipheral_selector.setSlot(1,{["id"]="..data[item].label..",["dmg"]=0})
       gpu.setForeground(0x3366CC)
-      else
-      square(5,e[4],66,1,0xDFDE6C)
-      gpu.setForeground(0x1366CC)
-      end
+      
       gpu.set(5,e[4],items.shop[choice].text)
       gpu.set(65,e[4],items.shop[choice].price)
       
