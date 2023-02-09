@@ -1,4 +1,4 @@
-local casino = require("pril")--20:18
+local casino = require("pril")--21:35
 local event = require("event")
 local shell = require("shell")
 local unicode = require("unicode")
@@ -556,8 +556,8 @@ while true do
 
     local e, _, x, y, _, p = {event.pull(1)}
     
-  drawlist()
-  drawStatic()
+ -- drawlist()
+  --drawStatic()
        drawDynamic()
        if e[1] == "key_down" then
     if e[4] == 200 then
@@ -589,7 +589,7 @@ break
 
        if choice then
       drawlist()
-      drawStatic()
+    --  drawStatic()
       drawDynamic()
       if choice then
       square(5,e[4],66,1,0xDEDE6C)
