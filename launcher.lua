@@ -1,4 +1,4 @@
-local casino = require("pril")--22:10
+local casino = require("pril")--22:30
 local event = require("event")
 local shell = require("shell")
 local unicode = require("unicode")
@@ -550,7 +550,7 @@ local function square(x,y,width,height,color)
   end
   --gpu.fill(x,y,width,height," ")
   drawStatic()
-  drawDynamic()
+  gpu.setBackground(0xDEDE6C)
 end
 
 while true do
