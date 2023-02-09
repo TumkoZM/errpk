@@ -548,9 +548,9 @@ local function square(x,y,width,height,color)
   if color and gpu.getBackground() ~= color then
     gpu.setBackground(color)
   end
-  gpu.fill(x,y,width,height," ")
+  --gpu.fill(x,y,width,height," ")
   drawStatic()
-        drawDynamic()
+  drawDynamic()
 end
 
 while true do
@@ -559,9 +559,7 @@ while true do
 
     local e, _, x, y, _, p = {event.pull(1)}
     
- -- drawlist()
-  --drawStatic()
-       drawDynamic()
+ 
        if e[1] == "key_down" then
     if e[4] == 200 then
       scroll("+")
