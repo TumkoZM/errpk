@@ -549,7 +549,8 @@ local function square(x,y,width,height,color)
     gpu.setBackground(color)
   end
   --gpu.fill(x,y,width,height," ")
-  drawStatic()
+  buffer.setResolution(76,24)
+    drawRectangleWithCenterText(1, 1, 76, 24, settings.TITLE, 0x1a1a1a, 0x1a1a1a)
   gpu.setBackground(0xDEDE6C)
 end
 
