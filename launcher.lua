@@ -1,4 +1,4 @@
-local casino = require("pril")--00:35
+local casino = require("pril")--1:15
 local event = require("event")
 local shell = require("shell")
 local unicode = require("unicode")
@@ -404,8 +404,7 @@ end
 local function drawLibSettings()
 
     for i = 1, #libs do
-        buffer.drawText(51, 5 + i * 2, 0x0000AA, "Скачать  Правка");
-        buffer.drawText(68, 5 + i * 2, 0, libs[i].path);
+         buffer.drawText(68, 5 + i * 2, 0, libs[i].path);
     end
     buffer.drawText(51, 5 + (1 + #libs) * 2, 0xff0000, "При редактировании, компьютер не будет защищен от других игроков!");
     buffer.drawText(51, 6 + (1 + #libs) * 2, 0xff0000, "Изменения вступят в силу после перезагрузки!");
@@ -434,19 +433,9 @@ local function drawDynamic()
             drawCurrency(2, 43 - 4 * (currencyLen - i), currencies[i], currencies[i] == currentCurrency)
         end
     end
-    drawRectangleWithCenterText(2, 46, 46, 1, "Текущая валюта", 0x431148, 0xFFFFFF)
-    drawCurrency(2, 47, currentCurrency)
-    buffer.drawText(40, 48, 0, "Сменить")
+     drawCurrency(2, 47, currentCurrency)
+    
 
-    if (state.devMode) then
-        drawRectangleWithCenterText(51, 40, 50, 5, "Обновить", 0x431148, 0xffffff)
-    else
-        if selection.available then
-            drawRectangleWithCenterText(51, 40, 50, 5, "Играть", 0x431148, 0xffffff)
-        else
-            drawRectangleWithCenterText(51, 40, 50, 5, "Временно недоступно", 0x433b44, 0xffffff)
-        end
-    end
     buffer.drawChanges()
 end
 
@@ -519,7 +508,7 @@ local function handlePim()
                     buffer.drawText(34, 24, 0x000000, 'Error Shop')
                     com.openperipheral_selector.setSlot(1,{["id"]="minecraft:blaze_powder",["dmg"]=0})
                     buffer.drawChanges()
-                    drawFrom = 0
+                    
         
         drawStatic()
         drawDynamic()
