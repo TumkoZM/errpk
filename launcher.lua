@@ -519,7 +519,7 @@ local function handlePim()
                     buffer.drawText(34, 24, 0x000000, 'Error Shop')
                     com.openperipheral_selector.setSlot(1,{["id"]="minecraft:blaze_powder",["dmg"]=0})
                     buffer.drawChanges()
-            
+                    drawFrom = 0
         
         drawStatic()
         drawDynamic()
