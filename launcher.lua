@@ -548,10 +548,9 @@ local function square(x,y,width,height,color)
   if color and gpu.getBackground() ~= color then
     gpu.setBackground(color)
   end
-  buffer.setResolution(76,24)
-  drawRectangleWithCenterText(1, 1, 76, 24, settings.TITLE, 0x1a1a1a, 0x1a1a1a)
-  buffer.drawChanges()
+  drawStatic()
   gpu.fill(x,y,width,height," ")
+  gpu.setBackground(0xDEDE6C)
   
 end
 
