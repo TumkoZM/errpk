@@ -1,4 +1,4 @@
-local casino = require("pril")--22:55
+local casino = require("pril")--23:14
 local event = require("event")
 local shell = require("shell")
 local unicode = require("unicode")
@@ -548,6 +548,8 @@ local function square(x,y,width,height,color)
   if color and gpu.getBackground() ~= color then
     gpu.setBackground(color)
   end
+  buffer.setResolution(76,24)
+  drawRectangleWithCenterText(1, 1, 76, 24, settings.TITLE, 0x1a1a1a, 0x1a1a1a)
   buffer.drawChanges()
   gpu.fill(x,y,width,height," ")
   
