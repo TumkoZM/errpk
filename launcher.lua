@@ -1,4 +1,4 @@
-local casino = require("pril")--23:38
+local casino = require("pril")--00:00
 local event = require("event")
 local shell = require("shell")
 local unicode = require("unicode")
@@ -558,7 +558,7 @@ while true do
 
     local e, _, x, y, _, p = {event.pull(1)}
     
-     
+     buffer.drawChanges()
        if e[1] == "key_down" then
     if e[4] == 200 then
       scroll("+")
