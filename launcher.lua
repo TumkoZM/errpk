@@ -1,4 +1,4 @@
-local casino = require("pril")--23:31
+local casino = require("pril")--23:35
 local event = require("event")
 local shell = require("shell")
 local unicode = require("unicode")
@@ -550,8 +550,6 @@ local function square(x,y,width,height,color)
   end
   drawStatic()
   gpu.fill(x,y,width,height," ")
-  
-  
 end
 
 while true do
@@ -560,7 +558,7 @@ while true do
 
     local e, _, x, y, _, p = {event.pull(1)}
     
-     drawStatic()
+     
        if e[1] == "key_down" then
     if e[4] == 200 then
       scroll("+")
