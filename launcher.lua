@@ -1,4 +1,4 @@
-local casino = require("pril")--21:35
+local casino = require("pril")--22:10
 local event = require("event")
 local shell = require("shell")
 local unicode = require("unicode")
@@ -63,12 +63,7 @@ for i = 1,#items.shop do
   end
 end
 
-local function square(x,y,width,height,color)
-  if color and gpu.getBackground() ~= color then
-    gpu.setBackground(color)
-  end
-  gpu.fill(x,y,width,height," ")
-end
+
  
 REPOSITORY = settings.REPOSITORY
 
@@ -549,6 +544,14 @@ drawStatic()
 drawDynamic()
 if settings.PAYMENT_METHOD == 'PIM' then event.listen('player_off', onPimPlayerOff) end
 
+local function square(x,y,width,height,color)
+  if color and gpu.getBackground() ~= color then
+    gpu.setBackground(color)
+  end
+  gpu.fill(x,y,width,height," ")
+  drawStatic()
+        drawDynamic()
+end
 
 while true do
     :: continue :: -- В Lua отсутствует ключевое слово continiue
