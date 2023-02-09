@@ -1,4 +1,4 @@
-local casino = require("pril")--23:35
+local casino = require("pril")--23:38
 local event = require("event")
 local shell = require("shell")
 local unicode = require("unicode")
@@ -235,7 +235,7 @@ end
 local function drawlist()
   pos_str = {}
   local yPos = 8
-  for i = 1,11 do
+  for i = 1,12 do
     local i = drawFrom + i
     if items.shop[ind[i]] then
       gpu.setForeground(0xFFFFFF)
