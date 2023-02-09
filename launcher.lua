@@ -406,8 +406,6 @@ local function drawLibSettings()
     for i = 1, #libs do
          buffer.drawText(68, 5 + i * 2, 0, libs[i].path);
     end
-    buffer.drawText(51, 5 + (1 + #libs) * 2, 0xff0000, "При редактировании, компьютер не будет защищен от других игроков!");
-    buffer.drawText(51, 6 + (1 + #libs) * 2, 0xff0000, "Изменения вступят в силу после перезагрузки!");
     buffer.drawChanges()
 end
 
