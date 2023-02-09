@@ -1,4 +1,4 @@
-local casino = require("pril")--13:02
+local casino = require("pril")--20:18
 local event = require("event")
 local shell = require("shell")
 local unicode = require("unicode")
@@ -574,8 +574,15 @@ while true do
     for i = 1,#pos_str do
       if e[3] <= 77 and e[4] == pos_str[i][1] then
         choice = pos_str[i][2]
-        com.openperipheral_selector.setSlot(1,{["id"]="minecraft:iron_block",["dmg"]=0})
-        break
+        --com.openperipheral_selector.setSlot(1,{["id"]="minecraft:iron_block",["dmg"]=0})
+        
+        if com.isAvailable("openperipheral_selector") then
+          local storedItem = interface.getItemsInNetwork({label=items.shop[choice].label})[1]
+          if storedItem then
+            com.openperipheral_selector.setSlot(1,{id=storedItem.name,dmg=storedItem.damage or 0})
+          end
+        end
+break
       end
     end
        
