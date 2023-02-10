@@ -560,7 +560,7 @@ while true do
     if e[1] == "scroll" then
     scroll(e[5])
     end
-     buffer.drawChanges()
+   --  buffer.drawChanges()
        if e[1] == "key_down" then
     if e[4] == 200 then
       scroll("+")
