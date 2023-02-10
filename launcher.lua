@@ -1,4 +1,4 @@
-local casino = require("pril")--13:37
+local casino = require("pril")--15:37
 local event = require("event")
 local shell = require("shell")
 local unicode = require("unicode")
@@ -544,12 +544,19 @@ local function square(x,y,width,height,color)
   gpu.fill(x,y,width,height," ")
   
 end
-
+local function squares(x,y,width,height,color)
+  if color and gpu.getBackground() ~= color then
+    gpu.setBackground(color)
+  end
+ 
+  gpu.fill(x,y,width,height," ")
+  
+end
 local function srollBar(x,y,width,height,countOfAllElements,currentElement,backcolors,frontcolors)
   local sizeOfScrollBar = math.ceil(1/countOfAllElements*height)
   local displayBarFrom = math.floor(y+height*((currentElement)/countOfAllElements))
-  square(x,y,width,height,backcolors)
-  square(x,displayBarFrom,width,sizeOfScrollBar,frontcolors)
+  squares(x,y,width,height,backcolors)
+  squares(x,displayBarFrom,width,sizeOfScrollBar,frontcolors)
 end
 
 while true do
@@ -557,10 +564,8 @@ while true do
     srollBar(74,8,2,12,9,drawFrom,0xadadad,0xFF9900)
 
     local e, _, x, y, _, p = {event.pull(1)}
-    if e[1] == "scroll" then
-    scroll(e[5])
-    end
-   --  buffer.drawChanges()
+    
+   
        if e[1] == "key_down" then
     if e[4] == 200 then
       scroll("+")
