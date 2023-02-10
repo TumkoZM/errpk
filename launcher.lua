@@ -561,7 +561,7 @@ end
 
 while true do
     :: continue :: -- В Lua отсутствует ключевое слово continiue
-    srollBar(74,8,2,12,9,drawFrom,0xadadad,0xFF9900)
+    srollBar(74,8,2,12,10,drawFrom,0xadadad,0xFF9900)
 
     local e, _, x, y, _, p = {event.pull(1)}
     
