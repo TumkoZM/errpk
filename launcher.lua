@@ -1,4 +1,4 @@
-local casino = require("pril")--1:15
+local casino = require("pril")--13:37
 local event = require("event")
 local shell = require("shell")
 local unicode = require("unicode")
@@ -18,6 +18,7 @@ local interface = com.me_interface
 local gpu = com.gpu
 local choice,run = false,true
 local drawFrom = 0
+local ind = {1,2,3,4,5,6,7,8,9,10}
 local items,pos_str = {},{}
 local patch_items = "/home/items.lua"
 
@@ -544,12 +545,21 @@ local function square(x,y,width,height,color)
   
 end
 
+local function srollBar(x,y,width,height,countOfAllElements,currentElement,backcolors,frontcolors)
+  local sizeOfScrollBar = math.ceil(1/countOfAllElements*height)
+  local displayBarFrom = math.floor(y+height*((currentElement)/countOfAllElements))
+  square(x,y,width,height,backcolors)
+  square(x,displayBarFrom,width,sizeOfScrollBar,frontcolors)
+end
+
 while true do
     :: continue :: -- В Lua отсутствует ключевое слово continiue
-    
+    srollBar(10,5,2,16,9,drawFrom,0xFFFF99,0xFF9900)
 
     local e, _, x, y, _, p = {event.pull(1)}
-    
+    if e[1] == "scroll" then
+    scroll(e[5])
+    end
      buffer.drawChanges()
        if e[1] == "key_down" then
     if e[4] == 200 then
